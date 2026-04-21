@@ -1,8 +1,4 @@
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-backend-webgl';
-import * as mobilenet from '@tensorflow-models/mobilenet';
-import { comprehensiveDiseaseData } from '../../db/diseaseDataComprehensive';
-import { knowledgeBaseQueries } from '../../db/knowledgeBaseQueries';
+import { knowledgeBaseQueries } from '../src/db/knowledgeBaseQueries';
 import { startComprehensiveAILearning } from './knowledgeIngestionService';
 
 let model = null;
@@ -13,19 +9,30 @@ let initPromise = null;
 export async function initializeAI() {
   if (initPromise) return initPromise;
   initPromise = (async () => {
-    try {
-      await tf.setBackend('webgl');
-      await tf.ready();
-      model = await mobilenet.load({ version: 2, alpha: 1.0 });
-      await buildReferenceCache();
-      startComprehensiveAILearning(model).catch(() => {});
-      return true;
-    } catch (err) {
-      await tf.setBackend('cpu');
-      model = await mobilenet.load({ version: 2, alpha: 1.0 });
-      startComprehensiveAILearning(model).catch(() => {});
-      return true;
-    }
+      try {
+        const tf = await import('@tensorflow/tfjs');
+        await import('@tensorflow/tfjs-backend-webgl');
+        const mobilenet = await import('@tensorflow-models/mobilenet');
+
+        await tf.setBackend('webgl');
+        await tf.ready();
+        model = await mobilenet.load({ version: 2, alpha: 1.0 });
+
+        await buildReferenceCache();
+        startComprehensiveAILearning(model).catch(() => {});
+        return true;
+      } catch (err) {
+        try {
+          const tf = await import('@tensorflow/tfjs');
+          const mobilenet = await import('@tensorflow-models/mobilenet');
+          await tf.setBackend('cpu');
+          model = await mobilenet.load({ version: 2, alpha: 1.0 });
+          startComprehensiveAILearning(model).catch(() => {});
+        } catch (e) {
+          console.error('Failed to load mobilenet or tfjs', e);
+        }
+        return true;
+      }
   })();
   return initPromise;
 }

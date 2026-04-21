@@ -1,9 +1,15 @@
-import * as pdfjsLib from 'pdfjs-dist';
-import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.js?url';
-import { getDB } from '../db/indexedDB';
-import * as tf from '@tensorflow/tfjs';
+import { getDB } from '../src/db/indexedDB';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+// Defer loading heavy libraries (pdfjs, tf) until runtime to avoid Vite static scanning
+let _pdfjsLib = null;
+let _pdfWorkerUrl = null;
+async function ensurePdfjs() {
+  if (_pdfjsLib) return _pdfjsLib;
+  _pdfjsLib = await import('pdfjs-dist');
+  _pdfWorkerUrl = (await import('pdfjs-dist/build/pdf.worker.min.js?url')).default;
+  _pdfjsLib.GlobalWorkerOptions.workerSrc = _pdfWorkerUrl;
+  return _pdfjsLib;
+}
 
 let isLearning = false;
 

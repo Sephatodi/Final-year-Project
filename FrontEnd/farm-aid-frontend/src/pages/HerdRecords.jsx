@@ -11,7 +11,7 @@ import {
 import ExportModal from '../components/common/ExportModal';
 import Sidebar from '../components/layout/Sidebar';
 import livestockApi from '../services/livestockApi';
-import * as aiService from '../../../ai/aiService';
+import * as aiService from '../../ai/aiService';
 //separate modal symptom checker 
    const SymptomCheckerComponent = ({ onClose }) => {
      const [selectedSymptoms, setSelectedSymptoms] = useState([]);

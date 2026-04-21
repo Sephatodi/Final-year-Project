@@ -1,0 +1,147 @@
+{
+  "diseases": [
+    {
+      "name": "Foot and Mouth Disease (FMD)",
+      "species_affected": ["Cattle", "Goats", "Sheep"],
+      "key_symptoms_signs": "Symptoms: Excessive salivation, runny nose, wounds/sores on hooves and mouth, lethargy, not feeding, drop in milk production. Signs: Highly contagious, rapid spread through the herd.",
+      "treatment": "Tetracycline antibiotics (e.g., Terramycin).",
+      "precautions_prevention": "Vaccination is key. Strict quarantine of new animals. Do not introduce animals from unknown health status. Report suspected cases immediately as it's a notifiable disease.",
+      "recovery_guidelines": "Isolate sick animals. Provide soft feed if mouth sores are painful. Disinfect housing and equipment thoroughly. Expect full recovery in uncomplicated cases, but productivity may be temporarily reduced."
+    },
+    {
+      "name": "Lumpy Skin Disease (LSD)",
+      "species_affected": ["Cattle", "Sheep", "Goats"],
+      "key_symptoms_signs": "Symptoms: Firm, raised sores (nodules) all over the hair coat, foul body odor, not feeding, fever. Signs: Very contagious and often fatal.",
+      "treatment": "Tetracycline antibiotics.",
+      "precautions_prevention": "Vaccination is the most effective prevention. Control insect vectors (flies, mosquitoes) which spread the disease.",
+      "recovery_guidelines": "Isolate affected animals immediately. Supportive care with good nutrition and pain relief. Culling severely affected animals may be necessary to prevent suffering and spread."
+    },
+    {
+      "name": "Contagious Caprine Pleuropneumonia (CCPP)",
+      "species_affected": ["Goats"],
+      "key_symptoms_signs": "Symptoms: Excessive coughing, labored breathing, nasal discharge, diarrhea, weight loss. Signs: Highly contagious, affects the lungs, often fatal.",
+      "treatment": "Penicillin.",
+      "precautions_prevention": "A specific vaccine exists for CCPP. Minimize mixing of goats from different herds. Good ventilation in housing is critical.",
+      "recovery_guidelines": "Isolate sick goats. Provide a stress-free, dry environment. Antibiotics are most effective in early stages. Recovered animals may have permanent lung damage."
+    },
+    {
+      "name": "East Coast Fever (ECF)",
+      "species_affected": ["Cattle"],
+      "key_symptoms_signs": "Symptoms: Diarrhea, bloody urine, weakness, swollen joints, excessive salivation, labored breathing, no milk letdown. Signs: Upon slaughter, the meat is yellow and has a foul smell.",
+      "treatment": "No specific treatment identified in the source. Veterinary care is essential.",
+      "precautions_prevention": "The primary prevention is tick control through regular dipping or spraying, as ticks transmit the disease.",
+      "recovery_guidelines": "Prognosis is poor without prompt veterinary intervention. Focus on rigorous tick control to prevent outbreaks. Recovered animals become carriers."
+    },
+    {
+      "name": "Malignant Catarrhal Fever (MCF)",
+      "species_affected": ["Cattle"],
+      "key_symptoms_signs": "Symptoms: Blindness, rough hair coat, weak joints, dry mouth, wailing sound, restlessness, head shaking, circling, tail may fall off. Signs: No cure, often fatal.",
+      "treatment": "No cure. Treatment is supportive to relieve symptoms.",
+      "precautions_prevention": "Prevent contact between cattle and wildebeest (or sheep, depending on the virus strain). Do not house cattle near lambing sheep.",
+      "recovery_guidelines": "Focus on prevention as the disease is almost always fatal. Affected animals should be euthanized on welfare grounds."
+    },
+    {
+      "name": "Bovine Ephemeral Fever (Three-Day Sickness)",
+      "species_affected": ["Cattle"],
+      "key_symptoms_signs": "Symptoms: Excessive salivation, shivering, hard stool, no milk letdown, sudden lameness. Signs: Rarely kills the animal directly, but recumbent animals can suffer from other issues.",
+      "treatment": "Supportive care: anti-inflammatories to reduce fever and pain. The traditional method of warming the animal (e.g., sun) helps with shivering.",
+      "precautions_prevention": "Control insect vectors (mosquitoes, biting midges) which spread the virus. Vaccines are available in some regions.",
+      "recovery_guidelines": "Ensure recumbent animals have good footing (soft bedding), are turned regularly, and have access to water and feed. Recovery is usually spontaneous within a few days."
+    },
+    {
+      "name": "Enterotoxemia (Overeating Disease)",
+      "species_affected": ["Sheep", "Goats"],
+      "key_symptoms_signs": "Symptoms: Sudden onset, healthy animals found dead. Upon slaughter, blood clots are noticed in the body. Signs: Animals die very quickly without showing prior illness.",
+      "treatment": "Often too late for treatment due to rapid death. High doses of antitoxin and antibiotics (penicillin) may help in early stages.",
+      "precautions_prevention": "Vaccination is highly effective and crucial, especially for young, fast-growing animals. Avoid sudden access to large amounts of grain or rich feed.",
+      "recovery_guidelines": "Focus on prevention. For animals showing signs, isolate and provide intensive nursing care. Increase fiber and reduce concentrate feeds."
+    },
+    {
+      "name": "Coenurosis (Gid, Sturdy)",
+      "species_affected": ["Sheep", "Goats"],
+      "key_symptoms_signs": "Symptoms: Circling, head pressing, blindness, emaciation, intense bellowing, ear touching causes pain, diarrhea. Signs: Caused by tapeworm larvae in the brain. No effective treatment.",
+      "treatment": "Tetracycline and other measures (ear cutting, sugar water) are generally ineffective.",
+      "precautions_prevention": "Break the life cycle: Do not feed dogs (the definitive host) raw sheep or goat heads/brains. Properly dispose of carcasses.",
+      "recovery_guidelines": "No recovery guidelines. Prevention is the only solution. Affected animals should be culled to prevent suffering."
+    },
+    {
+      "name": "Trypanosomiasis (Nagana)",
+      "species_affected": ["Cattle"],
+      "key_symptoms_signs": "Symptoms: Malnourishment (emaciation), dry mouth, hard black dung, swelling of front limbs, no milk letdown. Signs: Blood clots found after death. Highly fatal.",
+      "treatment": "Specific trypanocidal drugs (e.g., Veriben).",
+      "precautions_prevention": "Control the tsetse fly vector. Prevent animals from grazing in high-risk, mountainous areas during fly seasons.",
+      "recovery_guidelines": "Prompt treatment is essential. Recovered animals may remain weak and unthrifty. Work with a vet for correct drug dosage."
+    },
+    {
+      "name": "Anthrax",
+      "species_affected": ["Cattle", "Sheep", "Goats"],
+      "key_symptoms_signs": "Symptoms: Sudden death (often the first sign). In live animals: high fever, staggering, difficulty breathing, bloody discharge from orifices. Signs: Rapidly fatal septicemia.",
+      "treatment": "Do not treat. Report immediately. Antibiotics (penicillin) can work in early stages but are rarely used due to risk.",
+      "precautions_prevention": "Vaccination in endemic areas. Do not disturb soil or carcasses in outbreak areas. This is a zoonotic disease and a serious human health risk.",
+      "recovery_guidelines": "Do not open a dead animal suspected of anthrax. It causes spores to form. Incinerate or deeply bury the carcass with lime. Report to veterinary authorities."
+    },
+    {
+      "name": "Actinobacillosis (Wooden Tongue)",
+      "species_affected": ["Cattle", "Sheep"],
+      "key_symptoms_signs": "Symptoms: Difficulty eating, anorexia, excessive salivation. Signs: Soft-tissue swelling, abscesses, and draining tracts on the head, neck, and especially the tongue, which becomes hard and wooden.",
+      "treatment": "High doses of antibiotics (sulfonamides, tetracyclines, ampicillin) for a long duration. Sodium iodide is also used.",
+      "precautions_prevention": "Prevent oral wounds by removing coarse or sharp materials from feed. Provide soft feed to affected animals.",
+      "recovery_guidelines": "Prognosis is fair with prolonged treatment. Isolate affected animals to prevent spread of pus. Culling may be economical for severe cases."
+    },
+    {
+      "name": "Arcanobacteriosis (Lumpy Jaw)",
+      "species_affected": ["Cattle"],
+      "key_symptoms_signs": "Symptoms: Painful eating, weight loss. Signs: A firm, non-painful, immovable swelling on the jawbone (mandible). Draining tracts may develop.",
+      "treatment": "Extended therapy with Penicillin, ampicillin, or amoxicillin. Isoniazid can be used in non-pregnant cattle.",
+      "precautions_prevention": "Prevent oral wounds by removing coarse or sharp materials from feed. The prognosis is often poor.",
+      "recovery_guidelines": "Culling is often recommended as the infection is deep in the bone and very difficult to cure."
+    },
+    {
+      "name": "Omphalophlebitis (Navel/Joint Ill)",
+      "species_affected": ["Young Calves", "Lambs", "Kids"],
+      "key_symptoms_signs": "Symptoms: Depression, anorexia. Signs: Painful, swollen navel; purulent discharge from navel; swollen, painful joints (joint ill); may progress to septicemia.",
+      "treatment": "Prompt, aggressive antibiotic therapy (broad-spectrum). Cleaning and disinfecting the navel.",
+      "precautions_prevention": "At birth, dip the navel cord in a strong 7% tincture of iodine. Ensure calving/lambing areas are clean, dry, and well-bedded.",
+      "recovery_guidelines": "Early treatment is critical for survival. Recovered animals may have permanent joint damage and poor growth. Cull severely affected calves."
+    }
+  ],
+  "general_prevention": {
+    "title": "The Foundation of Herd Health",
+    "key_strategies": [
+      {
+        "name": "Biosecurity",
+        "description": "This is your farm's first line of defense. It includes quarantining new animals for 2-4 weeks, controlling visitor access and ensuring they use clean footwear, and cleaning/disinfecting equipment and vehicles between farms."
+      },
+      {
+        "name": "Vaccination",
+        "description": "Work with your veterinarian to develop a vaccination protocol for diseases like FMD, LSD, CCPP, Enterotoxemia, and Anthrax."
+      },
+      {
+        "name": "Husbandry",
+        "description": "Good nutrition, clean water, adequate ventilation in housing, and low-stress handling significantly boost animals' natural immunity and resilience."
+      },
+      {
+        "name": "Regular Monitoring",
+        "description": "Observe your animals daily. Early identification of signs like reduced feed intake, lethargy, or isolation from the herd allows for rapid intervention."
+      }
+    ]
+  },
+  "general_guidelines_for_managing_sick_animals": [
+    {
+      "step": "Isolate Immediately",
+      "description": "Remove sick animals from the healthy herd and place them in a designated sick pen. This pen should be cleaned and disinfected after use and should not be used for healthy animals, especially calving."
+    },
+    {
+      "step": "Prompt Diagnosis and Treatment",
+      "description": "Contact your veterinarian for a confirmed diagnosis. Follow their treatment plan precisely, completing the full course of antibiotics even if the animal appears better."
+    },
+    {
+      "step": "Supportive Care",
+      "description": "Provide sick animals with easy access to fresh water and high-quality, palatable feed. Soft bedding will help recumbent animals. Reducing stress is a critical part of therapy."
+    },
+    {
+      "step": "Hygiene Protocol",
+      "description": "After handling sick animals, always change your clothes and disinfect your boots and any equipment used (e.g., feeding buckets, halters) before returning to the healthy herd."
+    }
+  ]
+}

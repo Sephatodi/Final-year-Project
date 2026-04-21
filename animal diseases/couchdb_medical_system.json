@@ -1,0 +1,464 @@
+{
+  "databases": {
+    "medical_diseases": {
+      "documents": [
+        {
+          "_id": "disease_001",
+          "type": "disease",
+          "code": "DM2",
+          "name": "Type 2 Diabetes Mellitus",
+          "icd10_code": "E11.9",
+          "category": "Endocrine Disorders",
+          "symptoms": [
+            "Increased thirst",
+            "Frequent urination",
+            "Increased hunger",
+            "Fatigue",
+            "Blurred vision"
+          ],
+          "risk_factors": [
+            "Obesity",
+            "Family history",
+            "Physical inactivity",
+            "Age >45 years"
+          ],
+          "diagnosis_criteria": {
+            "fasting_glucose": ">=126 mg/dL",
+            "hba1c": ">=6.5%",
+            "oral_glucose_tolerance": ">=200 mg/dL"
+          },
+          "treatments": [
+            "Metformin",
+            "Lifestyle modifications",
+            "Insulin therapy"
+          ],
+          "severity_levels": ["Mild", "Moderate", "Severe"],
+          "created_at": "2026-01-15T10:00:00Z",
+          "updated_at": "2026-01-15T10:00:00Z",
+          "status": "active"
+        },
+        {
+          "_id": "disease_002",
+          "type": "disease",
+          "code": "HTN",
+          "name": "Hypertension",
+          "icd10_code": "I10",
+          "category": "Cardiovascular",
+          "symptoms": ["Headache", "Dizziness", "Chest pain"],
+          "risk_factors": ["High salt intake", "Obesity", "Stress"],
+          "diagnosis_criteria": {
+            "systolic": ">=130 mmHg",
+            "diastolic": ">=80 mmHg"
+          },
+          "treatments": ["ACE inhibitors", "Calcium channel blockers", "Lifestyle changes"],
+          "created_at": "2026-01-15T10:00:00Z",
+          "updated_at": "2026-01-15T10:00:00Z",
+          "status": "active"
+        },
+        {
+          "_id": "disease_003",
+          "type": "disease",
+          "code": "ASTHMA",
+          "name": "Bronchial Asthma",
+          "icd10_code": "J45.909",
+          "category": "Respiratory",
+          "symptoms": ["Wheezing", "Shortness of breath", "Coughing", "Chest tightness"],
+          "risk_factors": ["Allergies", "Family history", "Smoking"],
+          "diagnosis_criteria": {
+            "spirometry": "FEV1/FVC < 0.70",
+            "reversibility": ">12% improvement after bronchodilator"
+          },
+          "treatments": ["Inhaled corticosteroids", "Beta-agonists", "Leukotriene modifiers"],
+          "created_at": "2026-01-15T10:00:00Z",
+          "updated_at": "2026-01-15T10:00:00Z",
+          "status": "active"
+        }
+      ],
+      "design_documents": [
+        {
+          "_id": "_design/diseases",
+          "views": {
+            "by_category": {
+              "map": "function(doc) {\n  if (doc.type === 'disease') {\n    emit(doc.category, doc.name);\n  }\n}"
+            },
+            "by_symptom": {
+              "map": "function(doc) {\n  if (doc.type === 'disease' && doc.symptoms) {\n    for (var i in doc.symptoms) {\n      emit(doc.symptoms[i], doc.name);\n    }\n  }\n}"
+            },
+            "by_code": {
+              "map": "function(doc) {\n  if (doc.type === 'disease' && doc.code) {\n    emit(doc.code, { name: doc.name, icd10_code: doc.icd10_code });\n  }\n}"
+            }
+          }
+        }
+      ]
+    },
+    "knowledge_base": {
+      "documents": [
+        {
+          "_id": "kb_article_001",
+          "type": "knowledge_article",
+          "title": "Understanding Diabetes Management",
+          "category": "Patient Education",
+          "subcategory": "Chronic Disease Management",
+          "tags": ["diabetes", "insulin", "blood_sugar", "nutrition"],
+          "author": "Dr. Sarah Johnson",
+          "publish_date": "2026-01-15T00:00:00Z",
+          "last_reviewed": "2026-01-15T00:00:00Z",
+          "version": 3,
+          "content": {
+            "summary": "Comprehensive guide to managing type 2 diabetes",
+            "sections": [
+              {
+                "heading": "Understanding Blood Sugar",
+                "body": "Blood sugar levels indicate how well your body processes glucose. Normal fasting blood sugar is between 70-99 mg/dL."
+              },
+              {
+                "heading": "Medication Adherence",
+                "body": "Taking medications as prescribed is crucial for diabetes management. Metformin is typically the first-line medication."
+              },
+              {
+                "heading": "Lifestyle Modifications",
+                "body": "Regular exercise, healthy diet, and weight management can significantly improve blood sugar control."
+              }
+            ]
+          },
+          "related_diseases": ["disease_001"],
+          "references": [
+            "American Diabetes Association 2025",
+            "WHO Diabetes Guidelines"
+          ],
+          "attachments": {
+            "infographic": "diabetes_management.pdf",
+            "video_tutorial": "insulin_injection.mp4"
+          },
+          "view_count": 1542,
+          "rating": 4.8,
+          "status": "published"
+        },
+        {
+          "_id": "kb_guideline_001",
+          "type": "clinical_guideline",
+          "title": "Hypertension Treatment Protocol 2026",
+          "specialty": "Cardiology",
+          "evidence_level": "Grade A",
+          "recommendations": [
+            {
+              "condition": "Stage 1 Hypertension",
+              "action": "Lifestyle modifications for 3-6 months",
+              "medication": "Thiazide diuretic"
+            },
+            {
+              "condition": "Stage 2 Hypertension",
+              "action": "Immediate medication",
+              "medication": "ACE inhibitor + Calcium channel blocker"
+            }
+          ],
+          "contraindications": [
+            "ACE inhibitors in pregnancy",
+            "Beta-blockers in asthma"
+          ],
+          "approval_date": "2026-01-01T00:00:00Z",
+          "expiry_date": "2028-01-01T00:00:00Z",
+          "status": "active"
+        }
+      ],
+      "design_documents": [
+        {
+          "_id": "_design/knowledge_base",
+          "views": {
+            "by_category": {
+              "map": "function(doc) {\n  if (doc.type === 'knowledge_article' || doc.type === 'clinical_guideline') {\n    emit(doc.category, { title: doc.title, type: doc.type });\n  }\n}"
+            },
+            "by_tag": {
+              "map": "function(doc) {\n  if (doc.type === 'knowledge_article' && doc.tags) {\n    for (var i in doc.tags) {\n      emit(doc.tags[i], doc.title);\n    }\n  }\n}"
+            },
+            "recent_first": {
+              "map": "function(doc) {\n  if (doc.type === 'knowledge_article') {\n    emit(doc.publish_date, doc.title);\n  }\n}"
+            }
+          }
+        }
+      ]
+    },
+    "user_logins": {
+      "documents": [
+        {
+          "_id": "org.couchdb.user:john_doe",
+          "type": "user",
+          "name": "john_doe",
+          "roles": ["doctor", "editor"],
+          "password_scheme": "pbkdf2",
+          "iterations": 10000,
+          "derived_key": "a1b2c3d4e5f67890abcdef1234567890",
+          "salt": "random_salt_here_12345",
+          "user_metadata": {
+            "full_name": "John Doe",
+            "email": "john.doe@medical.com",
+            "department": "Cardiology",
+            "employee_id": "MD12345",
+            "phone": "+1234567890",
+            "profile_picture": "john_doe.jpg",
+            "specialization": ["Cardiology", "Internal Medicine"],
+            "license_number": "LIC-2024-001"
+          },
+          "security": {
+            "last_login": "2026-01-15T08:30:00Z",
+            "login_attempts": 0,
+            "account_locked": false,
+            "password_last_changed": "2025-12-01T00:00:00Z",
+            "mfa_enabled": true,
+            "mfa_method": "totp"
+          },
+          "permissions": {
+            "can_view_diseases": true,
+            "can_edit_knowledge_base": true,
+            "can_queue_messages": true,
+            "can_view_reports": false
+          },
+          "audit_log": [
+            {
+              "action": "login",
+              "timestamp": "2026-01-15T08:30:00Z",
+              "ip_address": "192.168.1.100"
+            },
+            {
+              "action": "password_change",
+              "timestamp": "2025-12-01T00:00:00Z",
+              "ip_address": "192.168.1.50"
+            }
+          ],
+          "created_at": "2025-01-01T00:00:00Z",
+          "updated_at": "2026-01-15T08:30:00Z"
+        },
+        {
+          "_id": "org.couchdb.user:jane_smith",
+          "type": "patient_user",
+          "name": "jane_smith",
+          "roles": ["patient"],
+          "password_scheme": "pbkdf2",
+          "iterations": 10000,
+          "derived_key": "x7y8z9a0b1c2d3e4f5g6h7i8j9k0l1m2",
+          "salt": "salt_value_67890",
+          "patient_info": {
+            "medical_record_number": "MRN-2026-001",
+            "date_of_birth": "1985-03-15",
+            "blood_type": "O+",
+            "allergies": ["Penicillin", "Sulfa drugs"]
+          },
+          "consent": {
+            "data_sharing": true,
+            "marketing_emails": false,
+            "telehealth_consent": true
+          },
+          "created_at": "2026-01-10T00:00:00Z",
+          "updated_at": "2026-01-10T00:00:00Z"
+        },
+        {
+          "_id": "org.couchdb.user:dr_johnson",
+          "type": "user",
+          "name": "dr_johnson",
+          "roles": ["doctor", "admin"],
+          "password_scheme": "pbkdf2",
+          "iterations": 10000,
+          "derived_key": "p9q8r7s6t5u4v3w2x1y0z9a8b7c6d5e4",
+          "salt": "admin_salt_54321",
+          "user_metadata": {
+            "full_name": "Dr. Emily Johnson",
+            "email": "emily.johnson@medical.com",
+            "department": "Endocrinology",
+            "employee_id": "MD67890",
+            "phone": "+1987654321",
+            "specialization": ["Endocrinology", "Metabolic Disorders"],
+            "license_number": "LIC-2023-089"
+          },
+          "security": {
+            "last_login": "2026-01-14T14:20:00Z",
+            "login_attempts": 0,
+            "account_locked": false,
+            "password_last_changed": "2026-01-01T00:00:00Z",
+            "mfa_enabled": false
+          },
+          "permissions": {
+            "can_view_diseases": true,
+            "can_edit_knowledge_base": true,
+            "can_queue_messages": true,
+            "can_view_reports": true
+          },
+          "audit_log": [],
+          "created_at": "2025-06-01T00:00:00Z",
+          "updated_at": "2026-01-14T14:20:00Z"
+        }
+      ],
+      "design_documents": [
+        {
+          "_id": "_design/users",
+          "views": {
+            "by_role": {
+              "map": "function(doc) {\n  if (doc.type === 'user' || doc.type === 'patient_user') {\n    for (var i in doc.roles) {\n      emit(doc.roles[i], doc.name);\n    }\n  }\n}"
+            },
+            "by_department": {
+              "map": "function(doc) {\n  if (doc.type === 'user' && doc.user_metadata && doc.user_metadata.department) {\n    emit(doc.user_metadata.department, doc.user_metadata.full_name);\n  }\n}"
+            },
+            "active_users": {
+              "map": "function(doc) {\n  if (doc.type === 'user' && doc.security.account_locked === false) {\n    emit(doc.name, doc.user_metadata.full_name);\n  }\n}"
+            }
+          }
+        }
+      ]
+    },
+    "message_queue": {
+      "documents": [
+        {
+          "_id": "msg_001",
+          "type": "queued_message",
+          "status": "pending",
+          "priority": "high",
+          "queue_name": "notification_queue",
+          "message": {
+            "from": "system",
+            "to": "dr_johnson",
+            "subject": "Urgent: Patient lab results ready",
+            "body": "Patient John Doe's lab results are now available for review. HbA1c: 8.2%",
+            "content_type": "text/plain"
+          },
+          "metadata": {
+            "created_at": "2026-01-15T09:00:00Z",
+            "scheduled_for": "2026-01-15T09:00:00Z",
+            "expires_at": "2026-01-16T09:00:00Z",
+            "retry_count": 0,
+            "max_retries": 3,
+            "retry_delay_seconds": 300,
+            "source": "lab_system",
+            "correlation_id": "lab-2026-001"
+          },
+          "delivery": {
+            "channel": "email",
+            "webhook_url": "https://api.medical.com/notifications",
+            "sms_number": "+1234567890"
+          },
+          "processing": {
+            "last_attempt": null,
+            "next_attempt": "2026-01-15T09:00:00Z",
+            "locked_by": null,
+            "locked_until": null
+          }
+        },
+        {
+          "_id": "msg_002",
+          "type": "queued_message",
+          "status": "processing",
+          "priority": "medium",
+          "queue_name": "appointment_queue",
+          "message": {
+            "from": "scheduling_system",
+            "to": "jane_smith",
+            "subject": "Appointment Reminder",
+            "body": "Your appointment with Dr. Johnson is tomorrow at 10:00 AM.",
+            "content_type": "text/plain"
+          },
+          "metadata": {
+            "created_at": "2026-01-14T08:00:00Z",
+            "scheduled_for": "2026-01-15T08:00:00Z",
+            "expires_at": "2026-01-15T12:00:00Z",
+            "retry_count": 1,
+            "max_retries": 3,
+            "retry_delay_seconds": 600,
+            "source": "scheduler",
+            "correlation_id": "appt-2026-045"
+          },
+          "delivery": {
+            "channel": "sms",
+            "webhook_url": null,
+            "sms_number": "+1987654321"
+          },
+          "processing": {
+            "last_attempt": "2026-01-15T08:00:00Z",
+            "next_attempt": "2026-01-15T08:10:00Z",
+            "locked_by": "worker_01",
+            "locked_until": "2026-01-15T08:15:00Z"
+          }
+        },
+        {
+          "_id": "dlq_001",
+          "type": "dead_letter",
+          "original_message_id": "msg_failed_001",
+          "failure_reason": "Recipient not found in user database",
+          "failure_timestamp": "2026-01-14T15:30:00Z",
+          "failed_attempts": 3,
+          "original_message": {
+            "to": "invalid_user@medical.com",
+            "subject": "System Update",
+            "body": "Please review the new clinical guidelines."
+          },
+          "action_required": "manual_review",
+          "resolved": false,
+          "created_at": "2026-01-14T15:30:00Z"
+        }
+      ],
+      "design_documents": [
+        {
+          "_id": "_design/message_queue",
+          "views": {
+            "pending_messages": {
+              "map": "function(doc) {\n  if (doc.type === 'queued_message' && doc.status === 'pending') {\n    emit([doc.priority, doc.metadata.created_at], null);\n  }\n}"
+            },
+            "by_recipient": {
+              "map": "function(doc) {\n  if (doc.type === 'queued_message') {\n    emit(doc.message.to, { status: doc.status, priority: doc.priority });\n  }\n}"
+            },
+            "by_status": {
+              "map": "function(doc) {\n  if (doc.type === 'queued_message') {\n    emit(doc.status, { id: doc._id, created_at: doc.metadata.created_at });\n  }\n}"
+            },
+            "dead_letters": {
+              "map": "function(doc) {\n  if (doc.type === 'dead_letter' && doc.resolved === false) {\n    emit(doc.failure_timestamp, doc.failure_reason);\n  }\n}"
+            },
+            "stuck_messages": {
+              "map": "function(doc) {\n  if (doc.type === 'queued_message' && \n      doc.status === 'processing' && \n      doc.processing.locked_until && \n      doc.processing.locked_until < new Date().toISOString()) {\n    emit(doc.processing.locked_until, doc._id);\n  }\n}"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "setup_instructions": {
+    "create_databases": [
+      "curl -X PUT http://admin:password123@127.0.0.1:5984/medical_diseases",
+      "curl -X PUT http://admin:password123@127.0.0.1:5984/knowledge_base",
+      "curl -X PUT http://admin:password123@127.0.0.1:5984/user_logins",
+      "curl -X PUT http://admin:password123@127.0.0.1:5984/message_queue"
+    ],
+    "load_documents": "For each document in each database, use: curl -X POST http://admin:password123@127.0.0.1:5984/{database_name} -H 'Content-Type: application/json' -d @document.json",
+    "load_design_documents": "For each design document, use: curl -X PUT http://admin:password123@127.0.0.1:5984/{database_name}/{design_doc_id} -H 'Content-Type: application/json' -d @design_doc.json"
+  },
+  "query_examples": {
+    "get_diseases_by_category": {
+      "method": "POST",
+      "url": "http://admin:password123@127.0.0.1:5984/medical_diseases/_find",
+      "body": {
+        "selector": {
+          "type": "disease",
+          "category": "Cardiovascular"
+        },
+        "fields": ["name", "icd10_code", "symptoms"]
+      }
+    },
+    "get_pending_high_priority_messages": {
+      "method": "POST",
+      "url": "http://admin:password123@127.0.0.1:5984/message_queue/_find",
+      "body": {
+        "selector": {
+          "$and": [
+            { "type": "queued_message" },
+            { "status": "pending" },
+            { "priority": "high" }
+          ]
+        }
+      }
+    },
+    "get_doctors_by_department": {
+      "method": "GET",
+      "url": "http://admin:password123@127.0.0.1:5984/user_logins/_design/users/_view/by_department?key=\"Cardiology\""
+    },
+    "get_articles_by_tag": {
+      "method": "GET",
+      "url": "http://admin:password123@127.0.0.1:5984/knowledge_base/_design/knowledge_base/_view/by_tag?key=\"diabetes\""
+    }
+  }
+}

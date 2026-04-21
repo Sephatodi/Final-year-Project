@@ -1,0 +1,47 @@
+{
+  "title": "Knowledge Base",
+  "subtitle": "Learn about livestock diseases, prevention, and treatment",
+  "searchPlaceholder": "Search articles...",
+  "recentSearches": "Recent Searches",
+  "searchTips": "Try:",
+  "showing": "Showing",
+  "of": "of",
+  "articles": "articles",
+  "noArticles": "No Articles Found",
+  "noArticlesMessage": "Try adjusting your search or filter to find what you're looking for.",
+  "clearFilters": "Clear Filters",
+  "readMore": "Read More",
+  "backToLibrary": "Back to Library",
+  "overview": "Overview",
+  "symptoms": "Symptoms",
+  "treatment": "Treatment",
+  "prevention": "Prevention",
+  "images": "Images",
+  "sources": "Sources",
+  "disclaimer": "Disclaimer: This information is for educational purposes only. Always consult with a qualified veterinarian for proper diagnosis and treatment.",
+  "lastUpdated": "Last updated",
+  "notifiable": "Notifiable",
+  "relatedArticles": "Related Articles",
+  "notFound": "Article Not Found",
+  "notFoundMessage": "The article you're looking for doesn't exist.",
+  "categories": {
+    "all": "All",
+    "disease": "Diseases",
+    "prevention": "Prevention",
+    "treatment": "Treatment",
+    "nutrition": "Nutrition",
+    "breeding": "Breeding",
+    "management": "Management"
+  },
+  "difficulty": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "species": {
+    "cattle": "Cattle",
+    "goat": "Goat",
+    "sheep": "Sheep",
+    "all": "All Species"
+  }
+}

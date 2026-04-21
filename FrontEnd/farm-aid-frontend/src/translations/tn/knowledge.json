@@ -1,0 +1,47 @@
+{
+  "title": "Kitso",
+  "subtitle": "Ite kanokano ka malwetse a diruiwa, thibelo le kalafi",
+  "searchPlaceholder": "Batla dikwalo...",
+  "recentSearches": "Dipatlo tsa Bosheng",
+  "searchTips": "Leka:",
+  "showing": "E bontsha",
+  "of": "ya",
+  "articles": "dikwalo",
+  "noArticles": "Ga go na Dikwalo tse di Bonweng",
+  "noArticlesMessage": "Leka go fetola patlo kgotsa setlhophi go bona se o se batlang.",
+  "clearFilters": "Phimola Disula",
+  "readMore": "Bala go Tswela Pele",
+  "backToLibrary": "Boela kwa Laeboraring",
+  "overview": "Kakaretso",
+  "symptoms": "Diponagalo",
+  "treatment": "Kalafi",
+  "prevention": "Thibelo",
+  "images": "Ditshwantsho",
+  "sources": "Metswedi",
+  "disclaimer": "Kelotlhokiso: Tshedimosetso e ke ya thuto fela. Nako tsotlhe buisana le ngaka ya diruiwa e e tshwanetseng go bona tlhatlhobo le kalafi e e siameng.",
+  "lastUpdated": "E mpotsitswe la bofelo",
+  "notifiable": "E Tshwanetse go Begwa",
+  "relatedArticles": "Dikwalo tse di Amanang",
+  "notFound": "Kwalo ga e a Fitlhelwa",
+  "notFoundMessage": "Kwalo e o e batlang ga e yo.",
+  "categories": {
+    "all": "Tsotlhe",
+    "disease": "Malwetse",
+    "prevention": "Thibelo",
+    "treatment": "Kalafi",
+    "nutrition": "Phepo",
+    "breeding": "Go Tshola",
+    "management": "Taolo"
+  },
+  "difficulty": {
+    "beginner": "Mothusa thomi",
+    "intermediate": "Fa gare",
+    "advanced": "E e Tseneletseng"
+  },
+  "species": {
+    "cattle": "Dikgomo",
+    "goat": "Dipodi",
+    "sheep": "Dinku",
+    "all": "Mefuta Tsotlhe"
+  }
+}

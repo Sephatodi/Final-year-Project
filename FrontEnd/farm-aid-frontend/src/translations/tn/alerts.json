@@ -1,0 +1,61 @@
+{
+  "title": "Ditemoso le Dikitsiso",
+  "subtitle": "Itsise ka go phatlha ga malwetse le dintshakeng tsa botlhokwa",
+  "allAlerts": "Ditemoso Tsotlhe",
+  "unread": "Tse di sa Balwang",
+  "read": "Tse di BADILWENG",
+  "critical": "Tsa Kotsi",
+  "warning": "Ditemoso",
+  "info": "Tshedimosetso",
+  "total": "Palogotlhe",
+  "searchPlaceholder": "Batla ditemoso...",
+  "noAlerts": "Ga go na Ditemoso",
+  "allClear": "Go siame! Ga go na ditemoso ka nako e.",
+  "noSearchResults": "Ga go na ditemoso tse di tshwanang le patlo ya gago",
+  "markAsRead": "Supe fa e Badilwe",
+  "dismiss": "Tlosa",
+  "takeAction": "Tsaya Kgato",
+  "expires": "E Fela ka",
+  "yourLocation": "Lefelo la Gago",
+  "diseaseZones": "Mafelo a Taolo ya Malwetse",
+  "movementRestrictions": "Dithibelo tsa Metsamao",
+  "restrictionsSubtitle": "Taolo ya jaanong ya metsamao ya diruiwa",
+  "youAreInRestrictedZone": "O MO LEFELONG LA DITHIBELO",
+  "effectiveFrom": "Go tloga ka",
+  "effectiveUntil": "Go fitlha ka",
+  "permits": "Ditetla",
+  "affectedSpecies": "Mefuta e e Amegileng",
+  "checkpoints": "Dikokwane tsa Tlhathlobo",
+  "penalties": "Dikotlhao",
+  "applyPermit": "Kopa Tetla",
+  "contactOfficer": "Ikgolaganye le Ofisiri",
+  "reportViolations": "Bega tlolo:",
+  "weatherAlerts": "Ditemoso tsa Loapi",
+  "alertTypes": {
+    "disease": "Tlhagiso ya Bolwetse",
+    "weather": "Tlhagiso ya Loapi",
+    "movement": "Tlhagiso ya Metsamao",
+    "market": "Dintshakeng tsa Mmaraka",
+    "system": "Kitsiso ya Sisteme"
+  },
+  "severity": {
+    "critical": "KOTSI",
+    "warning": "TLHAGISO",
+    "info": "TSHEDIMOSETSO"
+  },
+  "disease": {
+    "fmd": "Bolwetse jwa FMD",
+    "heartwater": "Heartwater",
+    "anthrax": "Anthrax",
+    "cbpp": "CBPP",
+    "lsd": "Lumpy Skin Disease"
+  },
+  "weather": {
+    "heavy_rain": "Pula e Ntši",
+    "flood": "Tlhagiso ya Morwalela",
+    "drought": "Tlhagiso ya Komelelo",
+    "heatwave": "Mogote o o Feteletseng",
+    "cold": "Serame",
+    "wind": "Phefo e e Maatla"
+  }
+}

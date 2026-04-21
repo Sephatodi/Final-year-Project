@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "privacy": "Maikutlo a Botho",
+    "terms": "Melao le Dipeo",
+    "features": "Dikarolo",
+    "knowledgeBase": "Kitso ya Motheo",
+    "telehealth": "Tlhokomelo ya Pholo kgakala",
+    "new": "Dintlha",
+    "about": "Ka Rona"
+  },
+  "landing": {
+    "feature1": {
+      "title": "Tsamaiso e Botlhale ya Polokelo",
+      "desc": "Lekola dijalo, diruiwa le didirisiwa ka dikakanyo tsa AI"
+    },
+    "feature2": {
+      "title": "Tlhokomelo ya Pholo kgakala",
+      "desc": "Ikopanye le dingaka tsa diruiwa tse di netefaditsweng ka bonako"
+    },
+    "feature3": {
+      "title": "Maraka o O Lebilweng",
+      "desc": "Rekisa dijalo tsa gago ka tlhamalalo go bareki"
+    },
+    "stats": {
+      "farmers": "Balemi ba Ba Tiro",
+      "animals": "Diruiwa tse di Tlhogometsweng",
+      "vets": "Dingaka tsa Diruiwa",
+      "support": "Diura tsa Thuso"
+    },
+    "announcement": "Ntiha: Lenaneo la go tsena la pele le a bulegile! Ikopanye le balemi ba le 500+ ba dirisang Farm Aid.",
+    "learnMore": "Ithute Go Oketsega",
+    "search": "Batla mapolasi, didirisiwa, kana ditirelo...",
+    "hero": {
+      "title": "Temothuo ya Segompieno, e E Bonolo",
+      "subtitle": "Go Tlotlofatsa Balemi ka Thekenoloji",
+      "description": "Farm Aid e gokaganya balemi le ditirelo tsa dingaka tsa diruiwa, diteng tsa maraka, le didirisiwa tsa temothuo tse di botlhale—ka botlhe mo sethaleng se le sengwe."
+    },
+    "cta": {
+      "primary": "Simolola Mahala",
+      "secondary": "Lebelela Ponagatso"
+    },
+    "field": {
+      "title": "Polokelo go ya kwa Marakeng",
+      "desc": "Temothuo e e tletseng",
+      "point1": "Go lebelela dijalo ka nako ya nnete",
+      "point2": "Dikakanyo le ditlhagiso tsa maemo a bosa",
+      "point3": "Diteng tsa maraka tse di fetogang",
+      "cta": "Tlhoma Dikarolo"
+    },
+    "footer": {
+      "description": "Go tlhotlofatsa balemi ba Aforika ka thekenoloji le tlhokomelo ya dingaka tsa diruiwa.",
+      "product": "Setlhogo"
+    }
+  },
+  "auth": {
+    "signup": "Ikanye"
+  }
+}

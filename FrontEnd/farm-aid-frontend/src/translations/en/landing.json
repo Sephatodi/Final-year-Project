@@ -1,0 +1,61 @@
+{
+  "landing": {
+    "announcement": "Latest News: New livestock vaccination tracking now live in version 2.4.",
+    "learnMore": "Read more →",
+    "search": "Search docs...",
+    "hero": {
+      "title": "Empowering Botswana's",
+      "subtitle": "Livestock Farmers.",
+      "description": "Comprehensive herd management and veterinary telehealth, designed to work anywhere—even offline in the remotest areas."
+    },
+    "cta": {
+      "primary": "Launch App",
+      "secondary": "Read Documentation",
+      "title": "Ready to Transform Your Farm?",
+      "subtitle": "Join thousands of farmers already using Farm-Aid to improve productivity and animal health.",
+      "getStarted": "Get Started for Free",
+      "watchDemo": "Watch Demo"
+    },
+    "features": {
+      "title": "Everything You Need to Succeed",
+      "subtitle": "Powerful tools designed for the realities of rural farming"
+    },
+    "feature1": {
+      "title": "Offline-First",
+      "desc": "Manage your herd records without an internet connection. Sync automatically when you're back in range. Perfect for remote grazing lands."
+    },
+    "feature2": {
+      "title": "Smart Diagnostics",
+      "desc": "On-device AI to identify livestock diseases from symptoms or photos. Get immediate guidance when time is of the essence."
+    },
+    "feature3": {
+      "title": "Telehealth Portal",
+      "desc": "Connect with expert veterinarians for remote consultations. Share digital health records for more accurate and faster remote support."
+    },
+    "field": {
+      "title": "Designed for the Field.",
+      "desc": "From the Okavango Delta to the Kalahari, Farm-Aid is built to withstand the realities of rural farming. Rugged UI, low battery consumption, and critical alert systems.",
+      "point1": "Multilingual support (Setswana & English)",
+      "point2": "Secure biometric health records",
+      "point3": "One-tap emergency vet contact",
+      "cta": "Explore All Features"
+    },
+    "stats": {
+      "farmers": "Farmers",
+      "animals": "Animals Tracked",
+      "vets": "Veterinarians",
+      "support": "24/7 Support"
+    },
+    "footer": {
+      "description": "Building the digital infrastructure for modern, resilient livestock farming across Botswana and beyond.",
+      "product": "Product",
+      "offline": "Offline Support",
+      "resources": "Resources",
+      "directory": "Vet Directory",
+      "community": "Community",
+      "roadmap": "Roadmap",
+      "company": "Company",
+      "rights": "All rights reserved."
+    }
+  }
+}

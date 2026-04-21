@@ -1,0 +1,95 @@
+{
+  "network": {
+    "title": "Phoso ya Kgolagano",
+    "message": "Ga go kgone go golagana le sebe. Tlhatlhoba kgolagano ya gago ya inthanete.",
+    "offline": "Ga o a golagana le inthanete. Ditiro dingwe di ka nna tsa seka tsa dira sentle.",
+    "timeout": "Nako ya kopo e fedile. Leka gape.",
+    "retry": "Leka Gape"
+  },
+  "server": {
+    "title": "Phoso ya Sebe",
+    "message": "Go na le phoso mo lehlakoreng la rona. Leka gape moragonyana.",
+    "maintenance": "Sebe se a tlhokomelwa. Leka gape ka morago ga metsotso e se kae.",
+    "overload": "Sebe se tshwerwe thata. Leka gape moragonyana."
+  },
+  "auth": {
+    "title": "Phoso ya Netefatso",
+    "unauthorized": "Ga o a letlelelwa go dira tiro e.",
+    "forbidden": "Go gana go tsena.",
+    "sessionExpired": "Nako ya gago e fedile. Tsena gape.",
+    "invalidCredentials": "Nomoro ya mogala kgotsa khunolamaru ga e a siama.",
+    "accountLocked": "Akhaonto ya gago e notletswe. Ikgolaganye le kemonokeng.",
+    "accountDisabled": "Akhaonto ya gago e emisitswe. Ikgolaganye le kemonokeng.",
+    "notVerified": "Tswee tswee, netefatsa nomoro ya gago ya mogala ntlha.",
+    "2faRequired": "Go tlhokega netefatso ya dikgato tse pedi.",
+    "2faInvalid": "Khoutu ya netefatso ya dikgato tse pedi ga e a siama."
+  },
+  "validation": {
+    "title": "Phoso ya Netefatso",
+    "message": "Tswee tswee, tlhatlhoba tshedimosetso e o e tsenyang mme o leke gape.",
+    "required": "{field} e a tlhokega.",
+    "minLength": "{field} e tshwanetse go nna bonye ditlhaka tse {length}.",
+    "maxLength": "{field} e tshwanetse go nna bogolo ditlhaka tse {length}.",
+    "min": "{field} e tshwanetse go nna bonye {min}.",
+    "max": "{field} e tshwanetse go nna bogolo {max}.",
+    "email": "Tswee tswee, tsena aterese ya imeile e e siameng.",
+    "phone": "Tswee tswee, tsena nomoro ya mogala e e siameng.",
+    "url": "Tswee tswee, tsena URL e e siameng.",
+    "date": "Tswee tswee, tsena letlha le le siameng.",
+    "number": "Tswee tswee, tsena nomoro e e siameng.",
+    "integer": "Tswee tswee, tsena palogotlhe e e siameng.",
+    "positive": "Tswee tswee, tsena nomoro e e kwa godimo ga lefela.",
+    "match": "{field} ga e tshwane.",
+    "unique": "{field} e tshwanetse go nna e e kgethegileng."
+  },
+  "notFound": {
+    "title": "Ga e a Fitlhelwa",
+    "page": "Tsebe ga e a fitlhelwa.",
+    "resource": "Se o se batlang ga se a fitlhelwa.",
+    "user": "Modirisi ga a a fitlhelwa.",
+    "animal": "Sediruiwa ga se a fitlhelwa.",
+    "report": "Pegelo ga e a fitlhelwa.",
+    "consultation": "Puisano ga e a fitlhelwa.",
+    "article": "Kwalo ga e a fitlhelwa."
+  },
+  "permission": {
+    "title": "Tetla e Gantswe",
+    "message": "Ga o na tetla ya go bona se.",
+    "camera": "Go gana go dirisa kh'hamera. Tswee tswee, letlelela kh'hamera.",
+    "location": "Go gana go dirisa lefelo. Tswee tswee, letlelela lefelo.",
+    "storage": "Go gana go dirisa polokelo. Tswee tswee, letlelela polokelo.",
+    "notifications": "Go gana go dirisa dikitsiso. Tswee tswee, letlelela dikitsiso."
+  },
+  "data": {
+    "title": "Phoso ya Datha",
+    "save": "Go boloka datha ga go atlega. Leka gape.",
+    "load": "Go tsenya datha ga go atlega. Leka gape.",
+    "delete": "Go phimola datha ga go atlega. Leka gape.",
+    "sync": "Go kopanya datha ga go atlega. Leka gape.",
+    "conflict": "Go lemogilwe kgotlhang ya datha. Rarabolola dikgotlhang.",
+    "offline": "Ga o kgone go dira tiro e fa o sa golagana le inthanete.",
+    "offlineSave": "Datha e bolokilwe mo lefelong. E tla kopanngwa fa o boela mo inthaneteng."
+  },
+  "file": {
+    "title": "Phoso ya Faele",
+    "upload": "Go tlhatlanya faele ga go atlega. Leka gape.",
+    "download": "Go laola faele ga go atlega. Leka gape.",
+    "size": "Bogolo jwa faele bo feta tekanyo.",
+    "type": "Mofuta wa faele ga o a letlelelwa.",
+    "corrupt": "Faele e bonagala e senyeglie.",
+    "notFound": "Faele ga e a fitlhelwa."
+  },
+  "payment": {
+    "title": "Phoso ya Tefo",
+    "failed": "Tefo ga e a atlega. Leka gape.",
+    "cancelled": "Tefo e emisitswe.",
+    "insufficient": "Madi a a sa lekaneng.",
+    "processing": "Tefo e santse e dirwa.",
+    "refunded": "Tefo e busitswe."
+  },
+  "unknown": {
+    "title": "Phoso e e sa Itseng",
+    "message": "Go na le phoso e e sa solofelwang. Leka gape.",
+    "contact": "Fa bothata bo tswelela, tswee tswee ikgolaganye le kemonokeng."
+  }
+}

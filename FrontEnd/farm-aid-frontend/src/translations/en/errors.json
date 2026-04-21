@@ -1,0 +1,95 @@
+{
+  "network": {
+    "title": "Network Error",
+    "message": "Unable to connect to the server. Please check your internet connection.",
+    "offline": "You are offline. Some features may be limited.",
+    "timeout": "Request timed out. Please try again.",
+    "retry": "Retry Connection"
+  },
+  "server": {
+    "title": "Server Error",
+    "message": "Something went wrong on our end. Please try again later.",
+    "maintenance": "Server is under maintenance. Please try again in a few minutes.",
+    "overload": "Server is experiencing high load. Please try again later."
+  },
+  "auth": {
+    "title": "Authentication Error",
+    "unauthorized": "You are not authorized to perform this action.",
+    "forbidden": "Access denied.",
+    "sessionExpired": "Your session has expired. Please log in again.",
+    "invalidCredentials": "Invalid phone number or password.",
+    "accountLocked": "Your account has been locked. Please contact support.",
+    "accountDisabled": "Your account has been disabled. Please contact support.",
+    "notVerified": "Please verify your phone number first.",
+    "2faRequired": "Two-factor authentication required.",
+    "2faInvalid": "Invalid two-factor authentication code."
+  },
+  "validation": {
+    "title": "Validation Error",
+    "message": "Please check your input and try again.",
+    "required": "{field} is required.",
+    "minLength": "{field} must be at least {length} characters.",
+    "maxLength": "{field} must be at most {length} characters.",
+    "min": "{field} must be at least {min}.",
+    "max": "{field} must be at most {max}.",
+    "email": "Please enter a valid email address.",
+    "phone": "Please enter a valid phone number.",
+    "url": "Please enter a valid URL.",
+    "date": "Please enter a valid date.",
+    "number": "Please enter a valid number.",
+    "integer": "Please enter a whole number.",
+    "positive": "Please enter a positive number.",
+    "match": "{field} does not match.",
+    "unique": "{field} must be unique."
+  },
+  "notFound": {
+    "title": "Not Found",
+    "page": "Page not found.",
+    "resource": "The requested resource was not found.",
+    "user": "User not found.",
+    "animal": "Animal not found.",
+    "report": "Report not found.",
+    "consultation": "Consultation not found.",
+    "article": "Article not found."
+  },
+  "permission": {
+    "title": "Permission Denied",
+    "message": "You don't have permission to access this resource.",
+    "camera": "Camera access denied. Please enable camera permissions.",
+    "location": "Location access denied. Please enable location permissions.",
+    "storage": "Storage access denied. Please enable storage permissions.",
+    "notifications": "Notification permissions denied. Please enable notifications."
+  },
+  "data": {
+    "title": "Data Error",
+    "save": "Failed to save data. Please try again.",
+    "load": "Failed to load data. Please try again.",
+    "delete": "Failed to delete data. Please try again.",
+    "sync": "Failed to sync data. Please try again.",
+    "conflict": "Data conflict detected. Please resolve conflicts.",
+    "offline": "Cannot perform this action while offline.",
+    "offlineSave": "Data saved locally. Will sync when online."
+  },
+  "file": {
+    "title": "File Error",
+    "upload": "Failed to upload file. Please try again.",
+    "download": "Failed to download file. Please try again.",
+    "size": "File size exceeds limit.",
+    "type": "File type not allowed.",
+    "corrupt": "File appears to be corrupt.",
+    "notFound": "File not found."
+  },
+  "payment": {
+    "title": "Payment Error",
+    "failed": "Payment failed. Please try again.",
+    "cancelled": "Payment cancelled.",
+    "insufficient": "Insufficient funds.",
+    "processing": "Payment is being processed.",
+    "refunded": "Payment has been refunded."
+  },
+  "unknown": {
+    "title": "Unknown Error",
+    "message": "An unexpected error occurred. Please try again.",
+    "contact": "If the problem persists, please contact support."
+  }
+}

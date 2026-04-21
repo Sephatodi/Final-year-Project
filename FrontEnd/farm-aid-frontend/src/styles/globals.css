@@ -1,0 +1,282 @@
+@import './themes/light.css';
+@import './themes/dark.css';
+
+/* Base styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography */
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5 {
+    @apply text-lg font-medium;
+  }
+
+  h6 {
+    @apply text-base font-medium;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+
+  /* Form elements */
+  input, textarea, select {
+    @apply rounded-lg border border-sage-200 dark:border-sage-800 bg-white dark:bg-sage-900/20 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-primary/20 text-slate-900;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-sage-100 dark:bg-sage-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sage-400 dark:bg-sage-600 rounded-full hover:bg-sage-500 dark:hover:bg-sage-500;
+  }
+
+  /* Focus outline */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-900;
+  }
+
+  /* Placeholder */
+  ::placeholder {
+    @apply text-sage-400 dark:text-sage-500;
+  }
+}
+
+/* Custom global styles */
+.notification-center {
+  @apply max-w-4xl mx-auto p-6;
+}
+
+.notification-header {
+  @apply flex items-center justify-between mb-8;
+}
+
+.notification-title {
+  @apply text-3xl font-bold text-sage-900 dark:text-white;
+}
+
+.notification-subtitle {
+  @apply text-sage-500 dark:text-sage-400 mt-2;
+}
+
+/* Urgent priorities section */
+.urgent-section {
+  @apply mb-8;
+}
+
+.urgent-title {
+  @apply flex items-center gap-2 text-sm font-semibold text-red-600 dark:text-red-400 uppercase tracking-wider mb-4;
+}
+
+.urgent-title::before {
+  content: "⚠️";
+  @apply text-base;
+}
+
+/* Alert cards */
+.alert-card {
+  @apply bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-lg p-6 mb-4;
+}
+
+.alert-title {
+  @apply text-lg font-bold text-red-800 dark:text-red-200 mb-2;
+}
+
+.alert-description {
+  @apply text-red-700 dark:text-red-300 mb-4;
+}
+
+.alert-actions {
+  @apply flex gap-4;
+}
+
+.alert-button {
+  @apply px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium;
+}
+
+.alert-button-secondary {
+  @apply px-4 py-2 bg-white dark:bg-sage-800 text-red-600 dark:text-red-300 border border-red-300 dark:border-red-700 rounded-lg hover:bg-red-50 dark:hover:bg-sage-700 transition-colors text-sm font-medium;
+}
+
+/* Environmental warnings */
+.warning-card {
+  @apply bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-lg p-6 mb-4;
+}
+
+.warning-header {
+  @apply flex items-center justify-between mb-3;
+}
+
+.warning-title {
+  @apply text-lg font-bold text-amber-800 dark:text-amber-200;
+}
+
+.warning-badge {
+  @apply px-3 py-1 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-xs font-semibold rounded-full;
+}
+
+.warning-description {
+  @apply text-amber-700 dark:text-amber-300 mb-4;
+}
+
+.warning-meta {
+  @apply flex gap-6 text-sm;
+}
+
+.warning-meta-item {
+  @apply flex items-center gap-2 text-amber-800 dark:text-amber-200;
+}
+
+.warning-meta-item i {
+  @apply text-amber-600 dark:text-amber-400;
+}
+
+/* Routine updates */
+.routine-section {
+  @apply mt-8;
+}
+
+.routine-title {
+  @apply text-sm font-semibold text-sage-600 dark:text-sage-400 uppercase tracking-wider mb-4;
+}
+
+.routine-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.routine-card {
+  @apply bg-white dark:bg-sage-900/20 border border-sage-200 dark:border-sage-800 rounded-lg p-4 hover:shadow-md transition-shadow;
+}
+
+.routine-card-header {
+  @apply flex items-center gap-2 mb-2;
+}
+
+.routine-badge {
+  @apply px-2 py-1 text-xs font-semibold rounded;
+}
+
+.routine-badge-task {
+  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300;
+}
+
+.routine-badge-market {
+  @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300;
+}
+
+.routine-badge-inventory {
+  @apply bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300;
+}
+
+.routine-badge-report {
+  @apply bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300;
+}
+
+.routine-card-title {
+  @apply font-medium text-sage-900 dark:text-white;
+}
+
+.routine-card-description {
+  @apply text-sm text-sage-600 dark:text-sage-400 mt-1;
+}
+
+.routine-card-meta {
+  @apply text-xs text-sage-500 dark:text-sage-500 mt-2;
+}
+
+.routine-card-link {
+  @apply text-primary text-sm hover:underline mt-2 inline-block;
+}
+
+/* Navigation */
+.nav-sidebar {
+  @apply w-64 bg-white dark:bg-background-dark border-r border-sage-200 dark:border-sage-800 h-screen fixed left-0 top-0 overflow-y-auto;
+}
+
+.nav-logo {
+  @apply p-6 border-b border-sage-200 dark:border-sage-800;
+}
+
+.nav-logo-container {
+  @apply flex items-center gap-3;
+}
+
+.nav-logo-icon {
+  @apply w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-background-dark;
+}
+
+.nav-logo-text {
+  @apply text-xl font-bold text-primary;
+}
+
+.nav-menu {
+  @apply p-4;
+}
+
+.nav-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sage-600 dark:text-sage-400 hover:bg-sage-50 dark:hover:bg-sage-800/30 hover:text-primary transition-colors;
+}
+
+.nav-item-active {
+  @apply bg-primary/10 text-primary font-semibold;
+}
+
+.nav-item-icon {
+  @apply text-xl;
+}
+
+/* Main content */
+.main-content {
+  @apply ml-64 p-8;
+}
+
+/* Utility classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}

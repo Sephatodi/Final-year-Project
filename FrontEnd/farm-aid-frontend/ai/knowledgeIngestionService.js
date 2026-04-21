@@ -6,7 +6,7 @@ let _pdfWorkerUrl = null;
 async function ensurePdfjs() {
   if (_pdfjsLib) return _pdfjsLib;
   _pdfjsLib = await import('pdfjs-dist');
-  _pdfWorkerUrl = (await import('pdfjs-dist/build/pdf.worker.min.js?url')).default;
+  _pdfWorkerUrl = (await import('pdfjs-dist/build/pdf.worker.min.mjs?url')).default;
   _pdfjsLib.GlobalWorkerOptions.workerSrc = _pdfWorkerUrl;
   return _pdfjsLib;
 }

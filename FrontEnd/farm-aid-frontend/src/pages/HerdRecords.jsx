@@ -11,7 +11,7 @@ import {
 import ExportModal from '../components/common/ExportModal';
 import Sidebar from '../components/layout/Sidebar';
 import livestockApi from '../services/livestockApi';
-import * as aiService from '../../ai/aiService';
+import aiService from '../services/aiService';
 //separate modal symptom checker 
    const SymptomCheckerComponent = ({ onClose }) => {
      const [selectedSymptoms, setSelectedSymptoms] = useState([]);
@@ -21,7 +21,10 @@ import * as aiService from '../../ai/aiService';
      const [resultReady, setResultReady] = useState(false);
      const [diagnosisResults, setDiagnosisResults] = useState(null);
      const [selectedSpecies, setSelectedSpecies] = useState('Cattle');
-     const [aiInitialized, setAiInitialized] = useState(false);
+   const [aiInitialized, setAiInitialized] = useState(true);
+   const fileInputRef = React.useRef(null);
+   const cameraInputRef = React.useRef(null);
+   const [uploadedFiles, setUploadedFiles] = useState([]);
    
      useEffect(() => {
        const handleOnline = () => setIsOffline(false);
@@ -29,13 +32,8 @@ import * as aiService from '../../ai/aiService';
        window.addEventListener('online', handleOnline);
        window.addEventListener('offline', handleOffline);
        
-       // Initialize AI service on component mount
-       aiService.initializeAI()
-         .then(() => setAiInitialized(true))
-         .catch(err => {
-           console.error('Failed to initialize AI:', err);
-           setAiInitialized(true); // Allow to proceed even if initialization fails
-         });
+         // Frontend AI calls use backend wrapper; assume ready
+         setAiInitialized(true);
        
        return () => {
          window.removeEventListener('online', handleOnline);
@@ -72,17 +70,14 @@ import * as aiService from '../../ai/aiService';
            throw new Error('AI service not initialized');
          }
          
-         // Combine symptoms and optional description for search
-         const searchQuery = conditionDescription 
-           ? `${selectedSymptoms.join(' ')} ${conditionDescription}` 
-           : selectedSymptoms.join(' ');
-         
-         // Call the AI service with unified search
-         const searchResults = await aiService.unifiedSearch({
-           text: searchQuery,
-           symptoms: selectedSymptoms,
-           species: selectedSpecies.toLowerCase()
-         });
+             // Combine symptoms and optional description for search
+             const searchQuery = conditionDescription
+                ? `${selectedSymptoms.join(' ')} ${conditionDescription}`
+                : selectedSymptoms.join(' ');
+
+             // Call the frontend AI wrapper (backend) which accepts species, symptoms and photos
+             const response = await aiService.checkSymptoms(selectedSpecies.toLowerCase(), selectedSymptoms, uploadedFiles);
+             const searchResults = Array.isArray(response) ? response : (response?.results || []);
          
          // If offline, save result locally
          if (isOffline) {
@@ -117,8 +112,8 @@ import * as aiService from '../../ai/aiService';
              description: topResult.description || ''
            });
            
-           // If high confidence match and appears to be critical, trigger emergency
-           if (topResult.confidence > 0.85 && topResult.diseaseCode?.toUpperCase() === 'FMD') {
+                // If high confidence match and appears to be critical, trigger emergency
+                if (topResult.confidence > 0.85 && topResult.diseaseCode?.toUpperCase() === 'FMD') {
              showEmergencyAlert();
              await createConsultationRequest(topResult);
            }
@@ -234,19 +229,63 @@ import * as aiService from '../../ai/aiService';
              </div>
    
              {/* Photo Upload */}
-             <div>
-               <label className="block text-sm font-bold text-gray-700 mb-2">Visual Evidence (Optional)</label>
-               <div className="grid grid-cols-2 gap-4">
-                 <button className="flex flex-col items-center gap-2 py-4 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl hover:bg-gray-100 transition">
-                   <Camera className="w-6 h-6 text-gray-400" />
-                   <span className="text-xs text-gray-500">Take Photo</span>
-                 </button>
-                 <button className="flex flex-col items-center gap-2 py-4 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl hover:bg-gray-100 transition">
-                   <UploadCloud className="w-6 h-6 text-gray-400" />
-                   <span className="text-xs text-gray-500">Upload</span>
-                 </button>
-               </div>
-             </div>
+                   <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">Visual Evidence (Optional)</label>
+                      <div className="grid grid-cols-2 gap-4">
+                         <button
+                            type="button"
+                            onClick={() => cameraInputRef.current?.click()}
+                            className="flex flex-col items-center gap-2 py-4 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl hover:bg-gray-100 transition"
+                         >
+                            <Camera className="w-6 h-6 text-gray-400" />
+                            <span className="text-xs text-gray-500">Take Photo</span>
+                         </button>
+                         <button
+                            type="button"
+                            onClick={() => fileInputRef.current?.click()}
+                            className="flex flex-col items-center gap-2 py-4 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl hover:bg-gray-100 transition"
+                         >
+                            <UploadCloud className="w-6 h-6 text-gray-400" />
+                            <span className="text-xs text-gray-500">Upload</span>
+                         </button>
+                      </div>
+
+                      <input
+                         ref={cameraInputRef}
+                         type="file"
+                         accept="image/*"
+                         capture="environment"
+                         className="hidden"
+                         onChange={(e) => {
+                            const files = Array.from(e.target.files || []);
+                            setUploadedFiles(prev => prev.concat(files));
+                            e.target.value = null;
+                         }}
+                      />
+
+                      <input
+                         ref={fileInputRef}
+                         type="file"
+                         accept="image/*"
+                         multiple
+                         className="hidden"
+                         onChange={(e) => {
+                            const files = Array.from(e.target.files || []);
+                            setUploadedFiles(prev => prev.concat(files));
+                            e.target.value = null;
+                         }}
+                      />
+
+                      {uploadedFiles.length > 0 && (
+                         <div className="mt-3 flex gap-2 overflow-x-auto">
+                            {uploadedFiles.map((f, i) => (
+                               <div key={i} className="w-20 h-20 rounded-md overflow-hidden border">
+                                  <img src={URL.createObjectURL(f)} alt={f.name} className="w-full h-full object-cover" />
+                               </div>
+                            ))}
+                         </div>
+                      )}
+                   </div>
    
              {/* Check Button */}
              <button

@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd FrontEnd/farm-aid-frontend && npm install && npm run build",
+  "outputDirectory": "FrontEnd/farm-aid-frontend/dist",
+  "framework": "vite"
+}

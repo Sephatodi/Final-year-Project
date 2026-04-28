@@ -20,8 +20,10 @@ const sequelizeOptions = {
 };
 
 // Prefer DATABASE_URL (Railway / Neon) over individual DB_* variables
-const sequelize = process.env.DATABASE_URL
-  ? new Sequelize(process.env.DATABASE_URL, {
+const connectionString = process.env.DATABASE_URL || 'postgresql://neondb_owner:npg_cz60hFdAqpgU@ep-lively-feather-anwhkvck-pooler.c-6.us-east-1.aws.neon.tech/FarmAid?sslmode=require&channel_binding=require';
+
+const sequelize = connectionString
+  ? new Sequelize(connectionString, {
       ...sequelizeOptions,
       dialectOptions: {
         ssl: {

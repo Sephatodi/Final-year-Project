@@ -68,23 +68,25 @@ export async function loadModel() {
 async function saveModelToIndexedDB(tfModel) {
   try {
     // Get model weights
-    const modelArtifacts = await tfModel.save(tf.io.withSaveHandler(async (artifacts) => {
-      // Store in PouchDB
-      const doc = {
-        _id: MODEL_STORAGE_KEY,
-        type: 'model_artifacts',
-        modelTopology: artifacts.modelTopology,
-        weightSpecs: artifacts.weightSpecs,
-        weightData: Array.from(new Uint8Array(artifacts.weightData)), // Convert to array for storage
-        format: artifacts.format,
-        generatedBy: artifacts.generatedBy,
-        convertedBy: artifacts.convertedBy,
-        timestamp: Date.now()
-      };
-      
-      await localDB.put(doc);
-      return { modelArtifacts: artifacts };
-    }));
+    const modelArtifacts = await tfModel.save({
+      save: async (artifacts) => {
+        // Store in PouchDB
+        const doc = {
+          _id: MODEL_STORAGE_KEY,
+          type: 'model_artifacts',
+          modelTopology: artifacts.modelTopology,
+          weightSpecs: artifacts.weightSpecs,
+          weightData: Array.from(new Uint8Array(artifacts.weightData)), // Convert to array for storage
+          format: artifacts.format,
+          generatedBy: artifacts.generatedBy,
+          convertedBy: artifacts.convertedBy,
+          timestamp: Date.now()
+        };
+        
+        await localDB.put(doc);
+        return { modelArtifacts: artifacts };
+      }
+    });
     
     return true;
   } catch (error) {
@@ -106,13 +108,15 @@ async function loadModelFromIndexedDB() {
       return null;
     }
     
-    const model = await tf.loadGraphModel(tf.io.withLoadHandler(async () => {
-      return {
-        modelTopology: doc.modelTopology,
-        weightSpecs: doc.weightSpecs,
-        weightData: new Uint8Array(doc.weightData).buffer
-      };
-    }));
+    const model = await tf.loadGraphModel({
+      load: async () => {
+        return {
+          modelTopology: doc.modelTopology,
+          weightSpecs: doc.weightSpecs,
+          weightData: new Uint8Array(doc.weightData).buffer
+        };
+      }
+    });
     
     return model;
   } catch (error) {

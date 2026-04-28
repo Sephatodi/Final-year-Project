@@ -14,11 +14,7 @@ function replaceInFile(filePath) {
     changed = true;
   }
 
-  if (content.includes('https://backend-production-a7388.up.railway.app/api')) {
-    content = content.replace(/https:\/\/backend-production-a7388\.up\.railway\.app\/api/g, 'http://localhost:5000/api');
-    content = content.replace(/https:\/\/backend-production-a7388\.up\.railway\.app/g, 'http://localhost:5000');
-    changed = true;
-  }
+  // Migration patterns removed as we are now fully on Render
 
   if (changed) {
     fs.writeFileSync(filePath, content, 'utf8');

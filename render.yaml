@@ -30,7 +30,3 @@ services:
         value: admin
       - key: COUCHDB_PASSWORD
         value: password1234
-    disk:
-      name: couchdb-data
-      mountPath: /opt/couchdb/data
-      sizeGB: 1

@@ -4,7 +4,7 @@ echo "Starting Farm-Aid Database Initialization..."
 
 # Configuration
 DB_USER="admin"
-DB_PASS="password1234"
+DB_PASS="password123"
 BASE_URL="http://$DB_USER:$DB_PASS@localhost:5984"
 
 # Wait for CouchDB to start

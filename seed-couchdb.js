@@ -1,6 +1,6 @@
 const PouchDB = require('pouchdb');
 
-const COUCHDB_URL = 'https://admin:password1234@farmaid-couchdb.onrender.com';
+const COUCHDB_URL = 'https://admin:password123@farmaid-couchdb.onrender.com';
 const db = new PouchDB(`${COUCHDB_URL}/knowledge-base`);
 
 const diseases = [

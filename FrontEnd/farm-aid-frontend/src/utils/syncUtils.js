@@ -8,7 +8,7 @@ PouchDB.plugin(find);
  * Handles offline-first logic using PouchDB and real-time sync with Render.
  */
 
-const COUCHDB_URL = import.meta.env.VITE_COUCHDB_URL || 'https://admin:password1234@farmaid-couchdb.onrender.com';
+const COUCHDB_URL = import.meta.env.VITE_COUCHDB_URL || 'https://admin:password123@farmaid-couchdb.onrender.com';
 
 // Local Databases
 export const localDBs = {

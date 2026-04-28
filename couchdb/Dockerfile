@@ -12,5 +12,9 @@ RUN mkdir -p /opt/couchdb/data && \
 # Copy custom configuration
 COPY local.ini /opt/couchdb/etc/local.ini
 
+# Copy initialization script
+COPY init-dbs.sh /docker-entrypoint-initdb.d/
+RUN chmod +x /docker-entrypoint-initdb.d/init-dbs.sh
+
 # Expose the CouchDB port
 EXPOSE 5984

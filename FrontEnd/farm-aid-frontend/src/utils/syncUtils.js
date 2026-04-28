@@ -1,67 +1,129 @@
 import PouchDB from 'pouchdb';
-import { API_BASE_URL } from './constants';
+import find from 'pouchdb-find';
+
+PouchDB.plugin(find);
 
 /**
- * CouchDB Sync Utility for Farm-Aid
- * Handles offline-first data synchronization between local PouchDB and remote CouchDB.
+ * CouchDB Sync & Query Utility for Farm-Aid
+ * Handles offline-first logic using PouchDB and real-time sync with Render.
  */
 
-const COUCHDB_REMOTE_URL = import.meta.env.VITE_COUCHDB_URL || 'https://admin:password1234@farm-aid-couchdb.onrender.com/farm_aid_production';
+const COUCHDB_URL = import.meta.env.VITE_COUCHDB_URL || 'https://admin:password1234@farmaid-couchdb.onrender.com';
 
-// Local database instance
-export const localDB = new PouchDB('farm_aid_local');
+// Local Databases
+export const localDBs = {
+  knowledgeBase: new PouchDB('farmaid_kb_local'),
+  consultations: new PouchDB('farmaid_consultations_local'),
+  alerts: new PouchDB('farmaid_alerts_local'),
+  marketPrices: new PouchDB('farmaid_prices_local')
+};
 
-// Remote database instance
-export const remoteDB = new PouchDB(COUCHDB_REMOTE_URL);
+// Remote Databases (on Render)
+const remoteDBs = {
+  knowledgeBase: new PouchDB(`${COUCHDB_URL}/knowledge-base`),
+  consultations: new PouchDB(`${COUCHDB_URL}/consultations`),
+  alerts: new PouchDB(`${COUCHDB_URL}/alerts`),
+  marketPrices: new PouchDB(`${COUCHDB_URL}/market-prices`)
+};
 
 /**
- * Initializes two-way synchronization
+ * Initializes synchronization for all databases
  */
-export const startSync = () => {
-  console.log('[SyncService] Initializing bidirectional sync with:', COUCHDB_REMOTE_URL);
+export const startGlobalSync = () => {
+  console.log('[SyncService] Starting Global Sync with Render...');
   
-  return localDB.sync(remoteDB, {
-    live: true,
-    retry: true
-  }).on('change', (info) => {
-    console.log('[SyncService] Data change detected:', info);
-  }).on('paused', (err) => {
-    if (err) {
-      console.warn('[SyncService] Sync paused due to error:', err);
-    } else {
-      console.log('[SyncService] Sync paused (up to date)');
-    }
-  }).on('active', () => {
-    console.log('[SyncService] Sync resumed (active)');
-  }).on('error', (err) => {
-    console.error('[SyncService] Critical sync error:', err);
+  Object.keys(localDBs).forEach(key => {
+    localDBs[key].sync(remoteDBs[key], {
+      live: true,
+      retry: true
+    }).on('change', (info) => {
+      console.log(`[SyncService] ${key} synced:`, info.docs_written);
+    }).on('error', (err) => {
+      console.error(`[SyncService] ${key} Sync Error:`, err);
+    });
   });
 };
 
 /**
- * Example JSON document structure for Livestock
+ * Knowledge Base Queries
  */
-export const LIVESTOCK_SCHEMA = {
-  _id: 'livestock_uuid', // unique id
-  type: 'livestock',
-  species: 'cattle',
-  breed: 'Brahman',
-  gender: 'female',
-  birthDate: '2023-01-01',
-  ownerId: 'user_uuid',
-  healthStatus: 'healthy',
-  lastChecked: new Date().toISOString()
-};
+export async function getDiseasesBySpecies(species) {
+  try {
+    const result = await localDBs.knowledgeBase.query('diseases/by-species', {
+      key: species,
+      include_docs: true
+    });
+    return result.rows.map(row => row.doc);
+  } catch (error) {
+    console.error('Error fetching diseases:', error);
+    return [];
+  }
+}
+
+export async function searchBySymptom(symptom) {
+  try {
+    const result = await localDBs.knowledgeBase.query('diseases/by-symptom', {
+      key: symptom.toLowerCase(),
+      include_docs: true
+    });
+    return result.rows.map(row => row.doc);
+  } catch (error) {
+    console.error('Error searching by symptom:', error);
+    return [];
+  }
+}
 
 /**
- * Example JSON document structure for Consultation
+ * Consultation Queries
  */
-export const CONSULTATION_SCHEMA = {
-  _id: 'consultation_uuid',
-  type: 'consultation',
-  farmerId: 'farmer_uuid',
-  vetId: 'vet_uuid',
-  status: 'pending',
-  messages: [],
-  createdAt: new Date().toISOString()
-};
+export async function createConsultationOffline(consultationData) {
+  const doc = {
+    _id: `consult_offline_${Date.now()}`,
+    type: 'consultation',
+    status: 'pending_sync',
+    created_offline: true,
+    ...consultationData,
+    created_at: new Date().toISOString()
+  };
+  
+  try {
+    const result = await localDBs.consultations.put(doc);
+    return { success: true, id: result.id };
+  } catch (error) {
+    console.error('Error saving offline consultation:', error);
+    return { success: false, error: error.message };
+  }
+}
+
+export async function getFarmerConsultations(farmerId) {
+  try {
+    const result = await localDBs.consultations.query('consultations/by-farmer', {
+      key: farmerId,
+      include_docs: true,
+      descending: true
+    });
+    return result.rows.map(row => row.doc);
+  } catch (error) {
+    console.error('Error fetching consultations:', error);
+    return [];
+  }
+}
+
+/**
+ * Market Price Queries
+ */
+export async function getLatestPrices(commodity, location) {
+  try {
+    const result = await localDBs.marketPrices.query('prices/by-commodity', {
+      startkey: [commodity, location],
+      endkey: [commodity, location, {}],
+      descending: true,
+      limit: 5,
+      include_docs: true
+    });
+    return result.rows.map(row => row.doc);
+  } catch (error) {
+    console.error('Error fetching prices:', error);
+    return [];
+  }
+}

@@ -94,7 +94,7 @@ const allowedOrigins = [
   'https://final-year-project-blond-two.vercel.app',
   process.env.FRONTEND_URL,
   /\.vercel\.app$/,
-  /\.railway\.app$/
+  /\.onrender\.com$/
 ].filter(Boolean);
 
 const corsOptions = {

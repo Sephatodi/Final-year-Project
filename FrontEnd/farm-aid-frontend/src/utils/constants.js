@@ -1,6 +1,6 @@
 // API Endpoints
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://backend-production-a7388.up.railway.app/api';
-export const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://backend-production-a7388.up.railway.app';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://final-year-project-s9va.onrender.com/api';
+export const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://final-year-project-s9va.onrender.com';
 
 // App Constants
 export const APP_NAME = 'Farm-Aid';

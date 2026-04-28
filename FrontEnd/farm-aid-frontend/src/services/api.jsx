@@ -6,7 +6,7 @@
  */
 
 // Fix: Use import.meta.env instead of process.env for Vite
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://backend-production-a7388.up.railway.app/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://final-year-project-s9va.onrender.com/api';
 
 /**
  * Validates network connectivity natively where possible.

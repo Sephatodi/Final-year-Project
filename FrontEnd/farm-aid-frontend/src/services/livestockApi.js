@@ -1,5 +1,5 @@
 // Livestock API Service
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://backend-production-a7388.up.railway.app/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://final-year-project-s9va.onrender.com/api';
 
 const getAuthToken = () => {
   const token = localStorage.getItem('token');

@@ -14,12 +14,9 @@ function replaceInFile(filePath) {
     changed = true;
   }
 
-  if (content.includes('http://localhost:5000/api')) {
-    content = content.replace(/http:\/\/localhost:5000\/api/g, 'https://backend-production-a7388.up.railway.app/api');
-    changed = true;
-  }
-  if (content.includes('http://localhost:5000')) {
-    content = content.replace(/http:\/\/localhost:5000/g, 'https://backend-production-a7388.up.railway.app');
+  if (content.includes('https://backend-production-a7388.up.railway.app/api')) {
+    content = content.replace(/https:\/\/backend-production-a7388\.up\.railway\.app\/api/g, 'http://localhost:5000/api');
+    content = content.replace(/https:\/\/backend-production-a7388\.up\.railway\.app/g, 'http://localhost:5000');
     changed = true;
   }
 

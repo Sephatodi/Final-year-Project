@@ -1,8 +1,8 @@
 // API configuration
 export const apiConfig = {
   // Base URLs
-  baseUrl: import.meta.env.VITE_API_URL || 'https://backend-production-a7388.up.railway.app/api',
-  socketUrl: import.meta.env.VITE_SOCKET_URL || 'https://backend-production-a7388.up.railway.app',
+  baseUrl: import.meta.env.VITE_API_URL || 'https://final-year-project-s9va.onrender.com/api',
+  socketUrl: import.meta.env.VITE_SOCKET_URL || 'https://final-year-project-s9va.onrender.com',
   
   // API version
   version: 'v1',

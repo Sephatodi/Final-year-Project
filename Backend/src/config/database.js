@@ -8,23 +8,38 @@ dotenv.config({ quiet: true });
 // ===========================================
 // PostgreSQL Setup with Sequelize
 // ===========================================
-const sequelize = new Sequelize(
-  process.env.DB_NAME || 'farmAid',
-  process.env.DB_USER || 'postgres',
-  process.env.DB_PASSWORD || '1234@',
-  {
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
-    dialect: 'postgres',
-    logging: process.env.NODE_ENV === 'development' ? console.log : false,
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
+const sequelizeOptions = {
+  dialect: 'postgres',
+  logging: process.env.NODE_ENV === 'development' ? console.log : false,
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
   }
-);
+};
+
+// Prefer DATABASE_URL (Railway / Neon) over individual DB_* variables
+const sequelize = process.env.DATABASE_URL
+  ? new Sequelize(process.env.DATABASE_URL, {
+      ...sequelizeOptions,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+      }
+    })
+  : new Sequelize(
+      process.env.DB_NAME || 'farmAid',
+      process.env.DB_USER || 'postgres',
+      process.env.DB_PASSWORD || '1234@',
+      {
+        ...sequelizeOptions,
+        host: process.env.DB_HOST || 'localhost',
+        port: process.env.DB_PORT || 5432
+      }
+    );
 
 // ===========================================
 // CouchDB Setup

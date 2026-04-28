@@ -9,3 +9,5 @@ dist-ssr
 .DS_Store
 Backend/uploads/*
 !Backend/uploads/.gitkeep
+.vercel
+.env*.local

@@ -1,0 +1,73 @@
+import { useEffect, useState } from 'react';
+
+export const useLocalStorage = (key, initialValue) => {
+  // Get from local storage then parse stored json or return initialValue
+  const readValue = () => {
+    if (typeof window === 'undefined') {
+      return initialValue;
+    }
+
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.warn(`Error reading localStorage key "${key}":`, error);
+      return initialValue;
+    }
+  };
+
+  const [storedValue, setStoredValue] = useState(readValue);
+
+  // Return a wrapped version of useState's setter function that persists the new value to localStorage
+  const setValue = (value) => {
+    if (typeof window === 'undefined') {
+      console.warn(`Cannot set localStorage key "${key}" - window not available`);
+    }
+
+    try {
+      // Allow value to be a function so we have same API as useState
+      const newValue = value instanceof Function ? value(storedValue) : value;
+
+      // Save to local storage
+      window.localStorage.setItem(key, JSON.stringify(newValue));
+
+      // Save state
+      setStoredValue(newValue);
+
+      // Dispatch a custom event so other tabs can update
+      window.dispatchEvent(new Event('local-storage'));
+    } catch (error) {
+      console.warn(`Error setting localStorage key "${key}":`, error);
+    }
+  };
+
+  useEffect(() => {
+    // Listen for changes in other tabs
+    const handleStorageChange = () => {
+      setStoredValue(readValue());
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('local-storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('local-storage', handleStorageChange);
+    };
+  }, []);
+
+  const remove = () => {
+    if (typeof window === 'undefined') {
+      console.warn(`Cannot remove localStorage key "${key}" - window not available`);
+    }
+
+    try {
+      window.localStorage.removeItem(key);
+      setStoredValue(initialValue);
+    } catch (error) {
+      console.warn(`Error removing localStorage key "${key}":`, error);
+    }
+  };
+
+  return [storedValue, setValue, remove];
+};

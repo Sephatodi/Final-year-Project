@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "herd": "My Herd",
+    "symptomChecker": "Symptom Checker",
+    "telehealth": "Telehealth",
+    "knowledgeBase": "Knowledge Base",
+    "alerts": "Alerts",
+    "settings": "Settings",
+    "reports": "Reports",
+    "analytics": "Analytics",
+    "features": "Features",
+    "new": "New",
+    "about": "About",
+    "documentation": "Documentation",
+    "partners": "Partners",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "help": "Help",
+    "offline": "Offline Mode",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register"
+  }
+}

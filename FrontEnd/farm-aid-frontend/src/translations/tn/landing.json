@@ -1,0 +1,61 @@
+{
+  "landing": {
+    "announcement": "Dikgang tsa Bosheng: Sedirisiwa sa go latela diente sa se se ntshwa se a dira.",
+    "learnMore": "Bala go tswela pele →",
+    "search": "Batla dikwalo...",
+    "hero": {
+      "title": "Go matlafatsa",
+      "subtitle": "Barui ba Botswana.",
+      "description": "Tsamaiso e e tletseng ya matshwao le telehealth ya dingaka, e e diretsweng go bereka gongwe le gongwe—tota le kwantle ga inthanete."
+    },
+    "cta": {
+      "primary": "Simolola App",
+      "secondary": "Bala Kaelo",
+      "title": "A o ipaakanyeditse go fetola polasi ya gago?",
+      "subtitle": "Kopana le diketekete tsa balemi ba ba setseng ba dirisa Farm-Aid go tokafatsa ditiro le botsogo jwa diruiwa.",
+      "getStarted": "Simolola mahala",
+      "watchDemo": "Bogela Demo"
+    },
+    "features": {
+      "title": "Sengwe le sengwe se o se tlhokang",
+      "subtitle": "Didirisiwa tse di maatla tse di diretsweng dintlha tsa temothuo kwa magaeng"
+    },
+    "feature1": {
+      "title": "Offline-First",
+      "desc": "Laola ditshwao tsa gago kwantle ga inthanete. E ikamanya gape fa o bona inthanete."
+    },
+    "feature2": {
+      "title": "Smart Diagnostics",
+      "desc": "AI mo sedirisiweng go lemoga malwetse mo diruiweng go tswa mo matshwaong kgotsa dinepe."
+    },
+    "feature3": {
+      "title": "Telehealth Portal",
+      "desc": "Ikgolaganye le dingaka tsa diphologolo tse di tlhaga go bona thuso ya ka nako."
+    },
+    "field": {
+      "title": "E diretse go bereka mo nageng.",
+      "desc": "Go tswa kwa Okavango go ya kwa Kalahari, Farm-Aid e a itshoka. UI e e nonofeng le tiriso e e kwa tlase ya betiri.",
+      "point1": "Kemonokeng ya dipuo (Setswana le English)",
+      "point2": "Ditshwao tsa botsogo tse di babalesegileng",
+      "point3": "Go ikgolaganya le ngaka ka nako ya potlako",
+      "cta": "Sekaseka ditiro tsotlhe"
+    },
+    "stats": {
+      "farmers": "Balemi",
+      "animals": "Diruiwa tse di kwadisitseng",
+      "vets": "Dingaka tsa diphologolo",
+      "support": "Kemonokeng ya 24/7"
+    },
+    "footer": {
+      "description": "Go aga maranyane a segompieno a temothuo a a nonofeng mo Botswana le go feta.",
+      "product": "Se re se nayang",
+      "offline": "Kemonokeng ya kwantle ga inthanete",
+      "resources": "Didirisiwa",
+      "directory": "Lenane la dingaka",
+      "community": "Lelapa la balemi",
+      "roadmap": "Tsela ya rona",
+      "company": "Khampani",
+      "rights": "Ditshwanelo tsotlhe di sireletsegile."
+    }
+  }
+}

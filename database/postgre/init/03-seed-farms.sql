@@ -1,0 +1,5 @@
+-- Insert farms
+INSERT INTO farms (id, farmer_id, farm_name, registration_number, village, district, total_area_hectares, grazing_area_hectares, water_sources, fence_type, has_quarantine_area) VALUES
+    ('f1111111-1111-1111-1111-111111111111', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Modise Main Farm', 'FARM/2022/001', 'Tonota', 'Central', 50.5, 40.0, ARRAY['borehole', 'river'], 'game_fence', true),
+    ('f2222222-2222-2222-2222-222222222222', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Molefe Ranch', 'FARM/2023/045', 'Francistown', 'North-East', 35.0, 30.0, ARRAY['borehole', 'storage_tank'], 'electric', true),
+    ('f3333333-3333-3333-3333-333333333333', 'cccccccc-cccc-cccc-cccc-cccccccccccc', 'Ntsima Goat Farm', 'FARM/2024/012', 'Masunga', 'North-East', 20.0, 18.0, ARRAY['borehole'], 'standard', false);

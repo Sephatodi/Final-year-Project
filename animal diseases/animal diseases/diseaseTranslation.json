@@ -1,0 +1,150 @@
+
+
+
+{
+  "malwetsi": [
+    {
+      "leina": "Foot and Mouth Disease (FMD) - Malwetse a Lomapo le Molomo",
+      "ditshedi_tse_di_amang": ["Dikgomo", "Podi", "Dinku"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Kgotsa matela mo hanong, sefofu se selela, maqeba a mangwe a a mo dilaong le molomong, go lapisisa, go se je sentle, phokotsego ya maši. Sesupo: O tshelafala ka bonako thata, o anama ka bonako mo motseng.",
+      "kalafi": "Dibenzathine tetracycline (e.g., Terramycin).",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Ente ya modisa e botlhokwa. Kgaolanyo ya diphologolo tse dintšhwa ka nako e e rileng (quarantine). O se ka wa tsholetsa diphologolo tse o sa itseng maemo a tsone a boitekanelo. Itsise batho ba tshireletso ya diphologolo ka bonako gonne ke bolwetse jo bo itsiswang.",
+      "kakgelo_ya_batho_ba_tshimo": "Kgaola diphologolo tse di lwalang. Naya dijo tse di borethe fela molomo o tshotse ke maqeba. Tlhatswa le go tlhapisa matlo le didirisiwa tsotlhe. Ka dinako tse di seng thata, diphologolo di ka fola sentle, mme go ka nna le phokotsego ya tlhagiso."
+    },
+    {
+      "leina": "Lumpy Skin Disease (LSD) - Malwetse a Marope a Letlalo",
+      "ditshedi_tse_di_amang": ["Dikgomo", "Dinku", "Podi"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Marope a a tletseng mo letlalong, monko o o bosula, go se je, fihela. Sesupo: O tshelafala thata gape o bolaya.",
+      "kalafi": "Dibenzathine tetracycline.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Ente ke yone thibelo e e botlhokwa go gaisa. Laola dikanyana tse di tshelafatsang bolwetse (ntsi, monang).",
+      "kakgelo_ya_batho_ba_tshimo": "Kgaola diphologolo tse di lwalang ka bonako. Di tlhokomele ka dijo tse di botoka le go di thusa go fokotsa botlhoko. Go bolaya diphologolo tse di tseneletseng thata go ka tlhokega go thibela go anama le kutlobotlhoko."
+    },
+    {
+      "leina": "Contagious Caprine Pleuropneumonia (CCPP) - Malwetse a Phefumololo a Podi",
+      "ditshedi_tse_di_amang": ["Podi"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Go khohlela thata, go hema ka thata, sefofu se selela mo nkong, letshoroma, go nnya mmele. Sesupo: O tshelafala thata, o ama maphego, gantsi o bolaya.",
+      "kalafi": "Penicillin.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Go na le ente e e kgethegileng ya CCPP. Fokotsa go tswakanya dipodi tse di tswang dietseng tse di farologaneng. Moya o o monate mo matlong ke wa botlhokwa.",
+      "kakgelo_ya_batho_ba_tshimo": "Kgaola dipodi tse di lwalang. Di nne mo lefelong le le omileng le le seng kgatelelo. Dikalafi di dira sentle fa di simololwa kwa tshimologong. Diphologolo tse di fodileng di ka nna le tshenyo ya maphego."
+    },
+    {
+      "leina": "East Coast Fever (ECF) - Malwetse a Dikgomo a Lebopo la Botlhaba",
+      "ditshedi_tse_di_amang": ["Dikgomo"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Letshoroma, metsi a marapo a a nang le madi, bokoa, marope a a rurugileng, kgotsa matela e e tseneletseng, go hema ka thata, maši a sa tsweng. Sesupo: Fa e bolawa, nama e e tala e a ntshoro gape e na le monko o o bosula.",
+      "kalafi": "Ga go na kalafi e e kgethegileng e e umakilweng mo mohloding. Kalafi ya dingaka tsa diphologolo e a tlhokega.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Thibelo e kgolo ke go laola dikwaripa ka go di tlhatswa kgotsa go di fafatsa ka dinako tsotlhe, gonne dikwaripa di anamisa bolwetse.",
+      "kakgelo_ya_batho_ba_tshimo": "Mafelo a a seng botlhoka fa go sa dirwe ka bonako. Tsepamisa mogopolo mo go laoleng dikwaripa go thibela go anama. Diphologolo tse di fodileng di tswelela di tshelafatsa."
+    },
+    {
+      "leina": "Malignant Catarrhal Fever (MCF) - Malwetse a a Kotsi a a nang le Sefofu",
+      "ditshedi_tse_di_amang": ["Dikgomo"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Bofofu, booa jo bo makgwakgwa, marope a a bokoa, molomo o o omileng, go lela, go se sireletse, go tsikinyetsa tlhogo, go dikadikana, mokgwe o ka wa wa. Sesupo: Ga go na kalafi, gantsi o bolaya.",
+      "kalafi": "Ga go na kalafi. Kalafi e thusa fela go fokotsa ditshupo.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Thibela go kopana ga dikgomo le dikgokong (kgotsa dinku, go ya ka mofuta wa kokoana). O se ka wa tsholetsa dikgomo gaufi le dinku tse di bobang.",
+      "kakgelo_ya_batho_ba_tshimo": "Tsepamisa mogopolo mo thibelong gonne bolwetse bo batla bo bolaya fela. Diphologolo tse di amileng di tshwanetse go bolawa go thibela kutlobotlhoko."
+    },
+    {
+      "leina": "Bovine Ephemeral Fever (Three-Day Sickness) - Malwetse a Matlhoko a a Nang le Matšatsi a Mararo",
+      "ditshedi_tse_di_amang": ["Dikgomo"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Kgotsa matela e e tseneletseng, go thothomela, mantle a a thata, maši a sa tsweng, go gwanta ka tshoganyetso. Sesupo: Ga a bolaile diphologolo ka tlhamalala, mme tse di rapaletseng di ka nna le mathata a mangwe.",
+      "kalafi": "Tlhokomelo e e thusang: di-anti-inflammatory go fokotsa fihela le botlhoko. Mokgwa wa setso wa go futhumatsa diphologolo (e.g., letsatsi) o thusa go thothomela.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Laola dikanyana tse di tshelafatsang (ntsi, monang) tse di anamisang kokoana. Diente di teng mo mafelong a mangwe.",
+      "kakgelo_ya_batho_ba_tshimo": "Diphele tse di rapaletseng di newe lefelo le le bonolo (bethe e e borethe), di thakgamisiwe ka dinako, di newe metsi le dijo. Gantsi di a fola ka bo tsone mo malatsing a le mmalwa."
+    },
+    {
+      "leina": "Enterotoxemia (Overeating Disease) - Malwetse a go Ja go gaisa",
+      "ditshedi_tse_di_amang": ["Dinku", "Podi"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Go simolola ka tshoganyetso, diphologolo tse di itekanetseng di fitlhelwa di sule. Fa e bolawa, go lemogwa maqeba a madi mo mmeleng. Sesupo: Diphologolo di a swa ka bonako thata di sa supe bolwetse.",
+      "kalafi": "Gantsi go ka bo go le morago thata go kalafi. Mefuta e e kwa godimo ya antitoxin le dikalafi (penicillin) di ka thusa fa e sa le kwa tshimologong.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Ente e a thusa thata, e botlhokwa go diphologolo tse di sa tsweng go gola tse di jang thata. Tila go di naya mabele a mantsi kgotsa dijo tse di nonneng ka tshoganyetso.",
+      "kakgelo_ya_batho_ba_tshimo": "Tsepamisa mogopolo mo thibelong. Fa diphologolo di supa ditshupo, di kgaole, di tlhokomele thata. Oketsa dijo tse di nang le fiber, fokotsa dijo tsa motogo."
+    },
+    {
+      "leina": "Coenurosis (Gid, Sturdy) - Malwetse a a nang le Ditshupo tsa Tlhogo",
+      "ditshedi_tse_di_amang": ["Dinku", "Podi"],
+      "key_symptoms_signs": "Ditshupo: Go dikadikana, go gatelela tlhogo, bofofu, go ota, go lela thata, e fa o tshwara tsebe e a lwela, letshoroma. Sesupo: E bakwa ke dinatana tsa seboko mo bobokong. Ga go na kalafi e e atlegang.",
+      "kalafi": "Tetracycline le mekgwa e mengwe (go kgaola tsebe, metsi a sukiri) gantsi ga e thuse.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Kgaola bophelo jwa seboko: O se ka wa naya dintša (mookamedi wa bolwetse) ditlhogo kgotsa boboko jwa dinku kgotsa podi tse di sa apea. Tlhakola ditopo ka tsela e e siameng.",
+      "kakgelo_ya_batho_ba_tshimo": "Ga go na kakgelo. Thibelo ke yone thanolo fela. Diphologolo tse di amileng di tshwanetse go bolawa go thibela kutlobotlhoko."
+    },
+    {
+      "leina": "Trypanosomiasis (Nagana) - Malwetse a a anamisiwang ke Ntsi",
+      "ditshedi_tse_di_amang": ["Dikgomo"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Go ota (go nna marapo fela), molomo o o omileng, mantle a a ntsho a a thata, go ruruga ga maoto a kwa pele, maši a sa tsweng. Sesupo: Maqeba a madi a a fitlhelwang fa e sule. O bolaya thata.",
+      "kalafi": "Dikalafi tse di kgethegileng tsa trypanocide (e.g., Veriben).",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Laola ntsi ya tsetse. Thibela diphologolo go fudisa mo mafelong a a kotsi, a a dithaba, ka nako ya ntsi.",
+      "kakgelo_ya_batho_ba_tshimo": "Kalafi ya bonako e a tlhokega. Diphologolo tse di fodileng di ka nna di sa kgone go nona sentle. Bua le ngaka ya diphologolo ka tekanyo e e siameng ya kalafi."
+    },
+    {
+      "leina": "Anthrax - Malwetse a a Bolayang ka Bonako",
+      "ditshedi_tse_di_amang": ["Dikgomo", "Dinku", "Podi"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Lesu la tshoganyetso (gantsi ke sesupo sa ntlha). Mo diphologolong tse di tshelang: fihela e e kwa godimo, go idibala, go hema ka thata, madi a a tswang mo dikotlhong. Sesupo: O bolaya ka bonako mo mading.",
+      "kalafi": "O se ka wa alafa. Itsise batho ba tshireletso ya diphologolo ka bonako. Dikalafi (penicillin) di ka dira fa e sa le kwa tshimologong mme ga di dirisiwe thata ka ntlha ya kotsi.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Ente mo mafelong a bolwetse bo tlwaelegileng. O se ka wa kgoreletsa mmu kgotsa ditopo mo mafelong a a nang le bolwetse. Bolwetse bo ka tshwaela batho mme bo kotsi thata mo botshelong jwa batho.",
+      "kakgelo_ya_batho_ba_tshimo": "O se ka wa bula phologolo e e suleng e belaelwa gore e na le anthrax. Go tla dira dikokoana. E ise molelong kgotsa e epelwe tseneletseng ka kalaka. Itsise balaodi ba diphologolo."
+    },
+    {
+      "leina": "Actinobacillosis (Wooden Tongue) - Malwetse a Loleme lo lo thata jaaka Logong",
+      "ditshedi_tse_di_amang": ["Dikgomo", "Dinku"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Bothata mo go jeng, tlala, kgotsa matela e e tseneletseng. Sesupo: Go ruruga ga dinama tse di bonolo, mathopa, le metsamao ya madi a a tswang mo tlhogong, molala, bogolo jang loleme lo nna thata jaaka logong.",
+      "kalafi": "Dikalafi tsa dithulaganyo tse di kwa godimo (sulfonamides, tetracyclines, ampicillin) ka lobaka lwa nako e telele. Sodium iodide le yone e a dirisiwa.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Thibela maqeba mo molomong ka go tlosa dilo tse di bogale kgotsa tse di thata mo dijong. Naya diphologolo tse di lwalang dijo tse di borethe.",
+      "kakgelo_ya_batho_ba_tshimo": "Maemo a a siameng ka kalafi ya lobaka lwa nako e telele. Kgaola diphologolo tse di lwalang go thibela go anama ga madi a a tswang. Go bolaya go ka nna molemo mo maemong a a thata."
+    },
+    {
+      "leina": "Arcanobacteriosis (Lumpy Jaw) - Malwetse a a nang le Morope mo Lerageng",
+      "ditshedi_tse_di_amang": ["Dikgomo"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Go ja go botlhoko, go ota mmele. Sesupo: Morope o o thata, o o sa botlhoko, o o sa kgonegang go tshikinyega mo lerageng. Go ka nna le mathopa a a tswang.",
+      "kalafi": "Kalafi ya lobaka lwa nako e telele ka Penicillin, ampicillin, kgotsa amoxicillin. Isoniazid e ka dirisiwa mo dikgomong tse di sa imamang.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Thibela maqeba mo molomong ka go tlosa dilo tse di bogale kgotsa tse di thata mo dijong. Maemo a a seng botlhoka thata.",
+      "kakgelo_ya_batho_ba_tshimo": "Go bolaya go thapiwa thata gonne tshenyo e tsene tsene mo marapong mme go thata go e alafa."
+    },
+    {
+      "leina": "Omphalophlebitis (Navel/Joint Ill) - Malwetse a Motsu le Marope",
+      "ditshedi_tse_di_amang": ["Dithole tsa dikgomo", "Dikonyane", "Dipotsane"],
+      "ditshupo_tse_botlhokwa": "Ditshupo: Go tepesegela, tlala. Sesupo: Motsu o o rurugileng, o botlhoko; madi a a tswang mo motsung; marope a a rurugileng, a botlhoko (joint ill); go ka ya kwa mading.",
+      "kalafi": "Dikalafi tsa bonako tse di tlhaselang dikokoana tse dintsi (broad-spectrum). Tlhatswa le go tlhapisa motsu.",
+      "ditshupo_tse_ka_tshimo_ka_tsone_le_thibelo": "Fa e tswalwa, tlhatswa motsu ka iodine e e matla (7%). Netefatsa gore mafelo a go tswalela a a tlhekefetse, a a omileng, a na le bethe e e siameng.",
+      "kakgelo_ya_batho_ba_tshimo": "Kalafi ya bonako e botlhokwa go phela. Diphologolo tse di fodileng di ka nna le tshenyo ya marope le go gola go sa siamang. Bolaya dithole tse di amileng thata."
+    }
+  ],
+  "thibelo_ka_kakaretso": {
+    "setlhogo": "Motheo wa Boitekanelo jwa Motsana",
+    "mekgwa_ya_botlhokwa": [
+      {
+        "leina": "Biosecurity - Tshireletso ya Motsana",
+        "tlhaloso": "E ne e le tshireletso ya ntlha ya polase ya gago. E akaretsa go kgaola diphologolo tse dintšhwa ka malatsi a 2-4, go laola baeng le go netefatsa gore ba rola ditlhako tse di tlhekefetseng, le go tlhatswa le go tlhapisa didirisiwa le dikoloi fa di tswa mo polaseng e nngwe."
+      },
+      {
+        "leina": "Vaccination - Ente",
+        "tlhaloso": "Dirisanang le ngaka ya diphologolo go tlhama lenaneo la diente la malwetsi a a jaaka FMD, LSD, CCPP, Enterotoxemia, le Anthrax."
+      },
+      {
+        "leina": "Husbandry - Tlhokomelo ya Diphologolo",
+        "tlhaloso": "Dijo tse di botoka, metsi a a tlhekefetseng, moya o o monate mo matlong, le go tshwara ka tlhomamo go thusa diphologolo go nna le mmele o o kwa godimo le go tlhagafala."
+      },
+      {
+        "leina": "Regular Monitoring - Go Lekola ka Dinako",
+        "tlhaloso": "Lebelela diphologolo tsa gago letsatsi le letsatsi. Go lemoga ditshupo tsa ntlha tse jaaka go fokotsega ga dijo, go tepesegela, kgotsa go kgaogana le motsana go thusa go dirisa ka bonako."
+      }
+    ]
+  },
+  "kakgelo_ya_kakaretso_ya_go_tlhokomela_diphologolo_tse_di_lwalang": [
+    {
+      "kgato": "Kgaola ka Bonako",
+      "tlhaloso": "Tlosa diphologolo tse di lwalang mo motseng o o itekanetseng, o di tsholele mo lefelong le le kgethetsweng balwetsi. Lefelo le le tshwanetse go tlhatswiwa le go tlhapisiwa morago ga tiriso, mme le se ka la dirisiwa gape mo diphologolong tse di itekanetseng, bogolo jang fa di tswala."
+    },
+    {
+      "kgato": "Kalafi le Tlhokomelo ya Bonako ya Ngaka",
+      "tlhaloso": "Itshwaraganye le ngaka ya diphologolo go netefatsa bolwetse. Sale morao ka tlhamalala lenaneo la kalafi, o fetsise kalafi yotlhe ya dibenzathine le fa phologolo e setse e bonala e fola."
+    },
+    {
+      "kgato": "Tlhokomelo e e Thusang",
+      "tlhaloso": "Naya diphologolo tse di lwalang metsi a a tlhekefetseng le dijo tse di botoka, tse di monate ka bonako. Bethe e e borethe e tla thusa diphologolo tse di rapaletseng. Go fokotsa kgatelelo ke karolo ya botlhokwa ya kalafi."
+    },
+    {
+      "kgato": "Tlhatlhobo ya Tlhekefetso",
+      "tlhaloso": "Morago ga go tshwara diphologolo tse di lwalang, chencha diaparo tsa gago, tlhapisa ditlhako le didirisiwa tsotlhe tse o di dirisitseng (e.g., dijelo, dikgogo) pele o boela mo motseng o o itekanetseng."
+    }
+  ]
+}

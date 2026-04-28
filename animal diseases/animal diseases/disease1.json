@@ -1,0 +1,401 @@
+{
+  "database_name": "livestock_diseases_db",
+  "description": "A comprehensive database for managing information on major diseases of livestock, including clinical signs, transmission, treatment, and control measures.",
+  "last_updated": "2026-04-16",
+  "data_sources": [
+    "MSD Veterinary Manual",
+    "World Organisation for Animal Health (WOAH)",
+    "Ruokavirasto (Finnish Food Authority)",
+    "NIH/PMC Veterinary Research",
+    "WikiVet",
+    "Dutch Wildlife Health Centre"
+  ],
+  "diseases": [
+    {
+      "_id": "disease_001",
+      "type": "viral",
+      "name": "African Swine Fever",
+      "acronym": "ASF",
+      "pathogen": "African Swine Fever Virus (Asfarviridae family)",
+      "hosts": ["Pigs", "Wild boars", "Minipigs"],
+      "transmission": [
+        "Direct contact with infected animals",
+        "Ornithodoros ticks (in Africa)",
+        "Contaminated feed (garbage/swill)",
+        "Contaminated equipment, clothing, and vehicles",
+        "Infected pork and pork products (virus survives months in chilled meat, years frozen)"
+      ],
+      "clinical_signs": [
+        "High fever (>40.5°C)",
+        "Lethargy and loss of appetite",
+        "Respiratory distress",
+        "Ocular and nasal discharges",
+        "Sudden death (often first sign)",
+        "Neurological symptoms (huddling, incoordination)",
+        "Hemorrhages (cyanosis of ears, extremities, skin)",
+        "Vomiting and bloody diarrhea"
+      ],
+      "virulence": "Highly virulent; morbidity and mortality can reach 100%",
+      "treatment": "None available",
+      "prevention": [
+        "Strict biosecurity on farms",
+        "Boiling of swill feed",
+        "No vaccine available globally",
+        "Prevent contact with wild boars",
+        "Import restrictions on pigs and pork from affected areas"
+      ],
+      "control": [
+        "Slaughter of all infected and exposed animals",
+        "Quarantine and movement restrictions",
+        "Carcass disposal (burning/burying)",
+        "Thorough disinfection of premises",
+        "Notification to veterinary authorities (notifiable disease)"
+      ],
+      "zoonotic": false,
+      "notifiable": true,
+      "incubation_period": "5–15 days (individual animals); weeks on farm level",
+      "references": ["Ruokavirasto 2025", "WikiVet", "DWHC"]
+    },
+    {
+      "_id": "disease_002",
+      "type": "viral",
+      "name": "Foot-and-Mouth Disease",
+      "acronym": "FMD",
+      "pathogen": "Foot-and-Mouth Disease Virus (Aphthovirus, Picornaviridae family)",
+      "serotypes": ["A", "O", "C", "Asia 1", "SAT 1", "SAT 2", "SAT 3"],
+      "hosts": ["Cattle", "Sheep", "Goats", "Pigs", "Buffalo", "Deer", "Camels", ">70 wild artiodactyls"],
+      "transmission": [
+        "Direct contact with infected animals",
+        "Aerosol (can travel up to 250 km over water)",
+        "Contaminated feed, water, and fomites",
+        "Milk and semen",
+        "Meat and bone products",
+        "Mechanical vectors (people, vehicles, birds)"
+      ],
+      "clinical_signs": [
+        "High fever",
+        "Vesicles (blisters) on mouth, tongue, muzzle, teats, and feet",
+        "Excessive salivation",
+        "Lameness and reluctance to move",
+        "Reduced milk production",
+        "Mortality in young animals (myocarditis)"
+      ],
+      "virulence": "Morbidity up to 100%; mortality 20–25% in calves/young, low in adults",
+      "treatment": "No specific antiviral treatment; supportive care only",
+      "prevention": [
+        "Vaccination (inactivated virus vaccines; serotype-specific, requires 1–3 doses/year)",
+        "Strict import controls on animals and animal products",
+        "Quarantine of new animals"
+      ],
+      "control": [
+        "Slaughter of infected and contact animals (in FMD-free countries)",
+        "Movement restrictions and quarantine",
+        "Disinfection (sodium hydroxide, sodium carbonate, citric acid)",
+        "Surveillance and tracing",
+        "Vaccination campaigns (in endemic regions)"
+      ],
+      "zoonotic": false,
+      "notifiable": true,
+      "incubation_period": "2–14 days (cattle); 3–8 days (sheep/goats); ?2 days (pigs)",
+      "economic_impact": "Estimated USD 10 billion (2001 UK outbreak)",
+      "references": ["MSD Veterinary Manual", "NIH/PMC 2024"]
+    },
+    {
+      "_id": "disease_003",
+      "type": "viral",
+      "name": "Classical Swine Fever",
+      "acronym": "CSF",
+      "also_known_as": "Hog Cholera",
+      "pathogen": "Classical Swine Fever Virus (Pestivirus, Flaviviridae family)",
+      "hosts": ["Domestic pigs", "Wild boars"],
+      "transmission": [
+        "Direct contact (saliva, nasal secretions, urine, feces)",
+        "Contaminated vehicles, pens, feed, and clothing",
+        "Feeding infected pork or pork products (virus survives months chilled, years frozen)",
+        "Persistently infected carrier pigs (shed virus without signs)",
+        "In utero infection from sows"
+      ],
+      "clinical_signs": {
+        "acute_form": [
+          "High fever (>41°C)",
+          "Huddling and lethargy",
+          "Conjunctivitis",
+          "Constipation followed by diarrhea",
+          "Purple discoloration of ears, abdomen, inner thighs",
+          "Neurological signs (ataxia, tremors)",
+          "Death within 1–2 weeks"
+        ],
+        "chronic_form": [
+          "Poor reproduction",
+          "Stunting and weight loss",
+          "Intermittent fever",
+          "Immunosuppression"
+        ]
+      },
+      "virulence": "Variable; acute form fatal in 1–2 weeks; chronic form progressive",
+      "treatment": "No treatment available",
+      "prevention": [
+        "Live attenuated vaccines (C-strain) in endemic regions",
+        "Strict biosecurity",
+        "No swill feeding",
+        "Movement controls",
+        "Wild boar surveillance"
+      ],
+      "control": [
+        "Stamping out (slaughter of all pigs on affected farms)",
+        "Quarantine and movement restrictions",
+        "Safe carcass disposal",
+        "Disinfection",
+        "Epidemiological investigation",
+        "Vaccination in endemic areas (must cease for disease-free status)"
+      ],
+      "zoonotic": false,
+      "notifiable": true,
+      "incubation_period": "3–7 days (acute form)",
+      "carrier_state": "Persistently infected pigs can shed virus for months",
+      "references": ["MSD Veterinary Manual", "WOAH", "Pig Progress"]
+    },
+    {
+      "_id": "disease_004",
+      "type": "viral",
+      "name": "Newcastle Disease",
+      "acronym": "ND",
+      "pathogen": "Avian avulavirus 1 (Paramyxoviridae family)",
+      "hosts": ["Chickens", "Turkeys", "Pigeons", "Wild birds"],
+      "transmission": [
+        "Direct contact with infected birds",
+        "Aerosol (respiratory secretions)",
+        "Contaminated feed, water, and equipment",
+        "Wild birds as reservoirs",
+        "Fecal-oral route"
+      ],
+      "clinical_signs": {
+        "velogenic_viscerotropic": [
+          "Sudden death (up to 100% mortality)",
+          "Respiratory distress (gasping, coughing)",
+          "Greenish diarrhea",
+          "Swelling of head and neck",
+          "Neurological signs (torticollis, paralysis)"
+        ],
+        "mesogenic": [
+          "Respiratory signs",
+          "Drop in egg production",
+          "Moderate mortality"
+        ],
+        "lentogenic": [
+          "Mild respiratory signs",
+          "Low mortality"
+        ]
+      },
+      "virulence": "Velogenic strains: up to 100% mortality in unvaccinated flocks",
+      "treatment": "No specific antiviral treatment; supportive care only",
+      "prevention": [
+        "Vaccination (live or inactivated vaccines; provides permanent immunity with boosters)",
+        "Biosecurity measures",
+        "Quarantine of new birds"
+      ],
+      "control": [
+        "Slaughter of infected flocks (stamping out)",
+        "Movement restrictions",
+        "Surveillance and testing",
+        "Disinfection of premises",
+        "Carcass disposal (burning or burying in quicklime as per image)"
+      ],
+      "zoonotic": "Mild conjunctivitis in humans (rare)",
+      "notifiable": true,
+      "incubation_period": "2–15 days",
+      "references": ["MSD Veterinary Manual", "WOAH"]
+    },
+    {
+      "_id": "disease_005",
+      "type": "viral",
+      "name": "Peste des Petits Ruminants",
+      "acronym": "PPR",
+      "also_known_as": "Goat Plague",
+      "pathogen": "PPR Virus (Morbillivirus, Paramyxoviridae family)",
+      "hosts": ["Goats", "Sheep", "Wild ruminants"],
+      "transmission": [
+        "Direct contact with infected animals",
+        "Aerosol (respiratory secretions)",
+        "Oral route (contaminated feed/water)",
+        "Fomites"
+      ],
+      "clinical_signs": [
+        "High fever (40–41°C)",
+        "Ocular and nasal discharge (serous to mucopurulent)",
+        "Oral lesions (necrosis and erosions)",
+        "Diarrhea (often bloody)",
+        "Pneumonia and dyspnea",
+        "Dehydration and emaciation",
+        "Abortion in pregnant females"
+      ],
+      "virulence": "Highly virulent; mortality 50–80% in acute cases",
+      "treatment": "No specific antiviral; supportive care and antibiotics for secondary infections",
+      "prevention": [
+        "Vaccination (live attenuated vaccine; provides long-term immunity)",
+        "Movement controls",
+        "Quarantine"
+      ],
+      "control": [
+        "Mass vaccination campaigns in endemic regions",
+        "Slaughter of infected animals",
+        "Carcass disposal",
+        "Disinfection"
+      ],
+      "zoonotic": false,
+      "notifiable": true,
+      "incubation_period": "4–6 days",
+      "references": ["MSD Veterinary Manual", "WOAH"]
+    },
+    {
+      "_id": "disease_006",
+      "type": "viral",
+      "name": "Rinderpest",
+      "acronym": "RP",
+      "also_known_as": "Cattle Plague",
+      "pathogen": "Rinderpest Virus (Morbillivirus, Paramyxoviridae family)",
+      "hosts": ["Cattle", "Buffalo", "Sheep", "Goats", "Pigs", "Wild artiodactyls"],
+      "transmission": [
+        "Direct contact with infected animals",
+        "Aerosol (respiratory secretions)",
+        "Contaminated feed, water, and fomites",
+        "Meat and offal from infected animals"
+      ],
+      "clinical_signs": [
+        "High fever (41–42°C)",
+        "Ocular and nasal discharge",
+        "Oral lesions (erosions and necrosis)",
+        "Profuse diarrhea (bloody, foul-smelling)",
+        "Dehydration and emaciation",
+        "Death within 6–12 days"
+      ],
+      "virulence": "Mortality 20–100% depending on strain and host",
+      "treatment": "No treatment available",
+      "prevention": [
+        "Vaccination (live attenuated vaccine; provides lifelong immunity)"
+      ],
+      "control": [
+        "Global eradication program (successful)",
+        "Slaughter of infected and exposed animals",
+        "Quarantine and movement restrictions",
+        "Surveillance"
+      ],
+      "eradication_status": "Declared globally eradicated in 2011 (second disease after smallpox)",
+      "zoonotic": false,
+      "notifiable": true,
+      "references": ["WOAH", "FAO"]
+    },
+    {
+      "_id": "disease_007",
+      "type": "bacterial",
+      "name": "Anthrax",
+      "pathogen": "Bacillus anthracis",
+      "hosts": ["Cattle", "Sheep", "Goats", "Pigs", "Horses", "Humans"],
+      "transmission": [
+        "Ingestion of spores from contaminated soil or feed",
+        "Inhalation of spores",
+        "Cutaneous (through skin wounds)",
+        "Contaminated meat and bone meal",
+        "Spores survive in soil for decades"
+      ],
+      "clinical_signs": {
+        "cattle_sheep": [
+          "Sudden death (peracute form)",
+          "High fever",
+          "Bloody discharges from orifices",
+          "Rapid bloating and incomplete rigor mortis"
+        ],
+        "pigs_humans": [
+          "Localized edema (pharyngeal or intestinal)",
+          "Mortality within 2–4 days"
+        ]
+      },
+      "virulence": "Peracute form: fatal within hours; swine form: 2–4 days",
+      "treatment": "Antibiotics (penicillin, tetracyclines, ciprofloxacin) effective if treated early",
+      "prevention": [
+        "Vaccination (spore-based vaccine; annual boosters)",
+        "Proper carcass disposal (burning or deep burial)",
+        "Quarantine of affected herds"
+      ],
+      "control": [
+        "Slaughter of infected animals (with precautions)",
+        "Carcass incineration (not opening reduces spore release)",
+        "Disinfection (formaldehyde, glutaraldehyde, oxidizing agents)",
+        "Surveillance and reporting"
+      ],
+      "zoonotic": true,
+      "notifiable": true,
+      "incubation_period": "1–14 days (humans)",
+      "references": ["MSD Veterinary Manual", "CDC"]
+    },
+    {
+      "_id": "disease_008",
+      "type": "bacterial",
+      "name": "Blackleg",
+      "pathogen": "Clostridium chauvoei",
+      "hosts": ["Cattle", "Sheep", "Goats"],
+      "transmission": [
+        "Soil-borne spores",
+        "Ingestion of contaminated feed or water",
+        "Spores germinate in muscle tissue following injury"
+      ],
+      "clinical_signs": [
+        "Sudden death (often within 24 hours of signs)",
+        "High fever",
+        "Lameness",
+        "Swollen, crepitant (gas-filled) muscles (typically thigh, shoulder, chest)",
+        "Dark discoloration of affected area"
+      ],
+      "virulence": "Fatal within 12–48 hours of onset",
+      "treatment": "Antibiotics (penicillin in high doses) if detected very early; often unsuccessful",
+      "prevention": [
+        "Vaccination (bacterin-toxoid; 2 doses initially, annual boosters)",
+        "Proper carcass disposal (burning or deep burial)"
+      ],
+      "control": [
+        "Slaughter of infected animals",
+        "Carcass disposal (spores contaminate soil if buried)",
+        "Disinfection of premises (spores are highly resistant)",
+        "Pasture rotation"
+      ],
+      "zoonotic": false,
+      "notifiable": "Varies by region",
+      "incubation_period": "1–5 days",
+      "references": ["MSD Veterinary Manual", "Merck Veterinary Manual"]
+    }
+  ],
+  "design_documents": {
+    "_id": "_design/livestock_diseases",
+    "views": {
+      "by_disease_type": {
+        "map": "function(doc) {\n  if (doc.type === 'viral' || doc.type === 'bacterial') {\n    emit(doc.type, doc.name);\n  }\n}"
+      },
+      "by_host": {
+        "map": "function(doc) {\n  if (doc.hosts) {\n    for (var i in doc.hosts) {\n      emit(doc.hosts[i], doc.name);\n    }\n  }\n}"
+      },
+      "by_zoonotic_status": {
+        "map": "function(doc) {\n  if (doc.zoonotic !== undefined) {\n    emit(doc.zoonotic, { name: doc.name, zoonotic: doc.zoonotic });\n  }\n}"
+      },
+      "by_notifiable_status": {
+        "map": "function(doc) {\n  if (doc.notifiable === true) {\n    emit(doc.name, doc.type);\n  }\n}"
+      },
+      "by_virulence": {
+        "map": "function(doc) {\n  if (doc.virulence) {\n    emit(doc.virulence, doc.name);\n  }\n}"
+      }
+    }
+  },
+  "query_examples": {
+    "get_all_viral_diseases": {
+      "method": "GET",
+      "url": "http://admin:password123@127.0.0.1:5984/livestock_diseases_db/_design/livestock_diseases/_view/by_disease_type?key=\"viral\""
+    },
+    "get_diseases_affecting_cattle": {
+      "method": "GET",
+      "url": "http://admin:password123@127.0.0.1:5984/livestock_diseases_db/_design/livestock_diseases/_view/by_host?key=\"Cattle\""
+    },
+    "get_zoonotic_diseases": {
+      "method": "GET",
+      "url": "http://admin:password123@127.0.0.1:5984/livestock_diseases_db/_design/livestock_diseases/_view/by_zoonotic_status?key=true"
+    }
+  }
+}

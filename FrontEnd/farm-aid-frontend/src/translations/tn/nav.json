@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "dashboard": "Phatlha",
+    "herd": "Diruiwa tsa Me",
+    "symptomChecker": "Sekaseka Bolwetse",
+    "telehealth": "Telehealth",
+    "knowledgeBase": "Kitso",
+    "alerts": "Ditemoso",
+    "settings": "Diphetogo",
+    "reports": "Dipegelo",
+    "analytics": "Tshekatsheko",
+    "features": "Ditiro",
+    "new": "Masha",
+    "about": "Ka ga rona",
+    "documentation": "Kaelo",
+    "partners": "Badiri mmogo",
+    "contact": "Ikgolaganye",
+    "legal": "Semolao",
+    "privacy": "Melao ya sephiri",
+    "terms": "Melao ya tiriso",
+    "help": "Thuso",
+    "offline": "Kwa Ntle ga Inthanete",
+    "login": "Tsena",
+    "logout": "Tswa",
+    "register": "Ikwadisa"
+  }
+}

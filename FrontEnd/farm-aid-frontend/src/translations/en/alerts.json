@@ -1,0 +1,62 @@
+{
+  "title": "Alerts & Notifications",
+  "subtitle": "Stay informed about disease outbreaks and important updates",
+  "allAlerts": "All Alerts",
+  "unread": "Unread",
+  "read": "Read",
+  "critical": "Critical",
+  "warning": "Warnings",
+  "info": "Information",
+  "total": "Total",
+  "searchPlaceholder": "Search alerts...",
+  "noAlerts": "No Alerts",
+  "allClear": "All clear! No alerts at this time.",
+  "noSearchResults": "No alerts match your search",
+  "markAsRead": "Mark as Read",
+  "dismiss": "Dismiss",
+  "takeAction": "Take Action",
+  "expires": "Expires",
+  "yourLocation": "Your Location",
+  "diseaseZones": "Disease Control Zones",
+  "movementRestrictions": "Movement Restrictions",
+  "restrictionsSubtitle": "Current livestock movement controls",
+  "youAreInRestrictedZone": "YOU ARE IN A RESTRICTED ZONE",
+  "effectiveFrom": "From",
+  "effectiveUntil": "Until",
+  "permits": "Permits",
+  "affectedSpecies": "Species",
+  "checkpoints": "Checkpoints",
+  "penalties": "Penalties",
+  "applyPermit": "Apply for Permit",
+  "contactOfficer": "Contact Officer",
+  "reportViolations": "Report violations:",
+  "weather": "Weather Alerts",
+  "weatherAlerts": "Weather Alerts",
+  "alertTypes": {
+    "disease": "Disease Alert",
+    "weather": "Weather Alert",
+    "movement": "Movement Alert",
+    "market": "Market Update",
+    "system": "System Notification"
+  },
+  "severity": {
+    "critical": "CRITICAL",
+    "warning": "WARNING",
+    "info": "INFO"
+  },
+  "disease": {
+    "fmd": "Foot and Mouth Disease",
+    "heartwater": "Heartwater",
+    "anthrax": "Anthrax",
+    "cbpp": "CBPP",
+    "lsd": "Lumpy Skin Disease"
+  },
+  "weather": {
+    "heavy_rain": "Heavy Rain",
+    "flood": "Flood Warning",
+    "drought": "Drought Warning",
+    "heatwave": "Heatwave",
+    "cold": "Cold Weather",
+    "wind": "Strong Winds"
+  }
+}

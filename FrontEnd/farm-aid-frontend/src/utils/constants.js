@@ -1,6 +1,6 @@
 // API Endpoints
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://final-year-project-s9va.onrender.com/api';
-export const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://final-year-project-s9va.onrender.com';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://farmaid-backend-6taf.onrender.com/api';
+export const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'https://farmaid-backend-6taf.onrender.com';
 
 // App Constants
 export const APP_NAME = 'Farm-Aid';

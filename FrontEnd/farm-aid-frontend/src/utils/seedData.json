@@ -1,0 +1,25 @@
+{
+  "livestock_samples": [
+    {
+      "species": "cattle",
+      "breed": "Brahman",
+      "gender": "female",
+      "healthStatus": "healthy",
+      "description": "Prime breeding cow"
+    },
+    {
+      "species": "sheep",
+      "breed": "Dorper",
+      "gender": "male",
+      "healthStatus": "healthy",
+      "description": "Strong ram"
+    }
+  ],
+  "consultation_samples": [
+    {
+      "subject": "FMD Vaccination",
+      "priority": "high",
+      "description": "Routine foot and mouth disease vaccination request"
+    }
+  ]
+}

@@ -92,9 +92,8 @@ const allowedOrigins = [
   'http://localhost:5174',
   'http://localhost:3000',
   'https://final-year-project-blond-two.vercel.app',
-  process.env.FRONTEND_URL,
-  /\.vercel\.app$/,
-  /\.onrender\.com$/
+  'https://final-year-project-blond-two-git-main-aobakwe-xolanis-projects.vercel.app',
+  process.env.FRONTEND_URL
 ].filter(Boolean);
 
 const corsOptions = {
@@ -102,16 +101,15 @@ const corsOptions = {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
 
-    const isAllowed = allowedOrigins.some(allowed => {
-      if (allowed instanceof RegExp) {
-        return allowed.test(origin);
-      }
-      return allowed === origin;
-    });
+    const isAllowed = allowedOrigins.includes(origin) || 
+                     origin.endsWith('.vercel.app') || 
+                     origin.endsWith('.onrender.com') ||
+                     origin.startsWith('http://localhost');
 
-    if (isAllowed || origin.startsWith('http://localhost')) {
+    if (isAllowed) {
       callback(null, true);
     } else {
+      console.warn(`CORS blocked for origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },

@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
+    "postinstall": "npm install --prefix Backend",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "build": "cd FrontEnd/farm-aid-frontend && npm install && npm run build",

@@ -50,9 +50,9 @@ const Header = () => {
     <header className="w-full">
       {/* Top Banner - Botswana Announcement */}
       <div className="bg-[#1e9d56] text-white py-2 text-center text-sm font-medium">
-        <span>🇧🇼 {t('announcement.setswana_support') || 'New: Setswana language support now available!'} 🇧🇼</span>
+        <span>🇧🇼 {t('common:landing.announcement')} 🇧🇼</span>
         <a href="#learn-more" className="ml-2 underline hover:text-green-100 font-semibold">
-          {t('common.learn_more') || 'Learn more'}
+          {t('common:landing.learnMore')}
         </a>
       </div>
 

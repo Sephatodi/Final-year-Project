@@ -22,6 +22,7 @@ const knowledgeRoutes = require('./src/routes/knowledgeRoutes');
 const marketRoutes = require('./src/routes/marketRoutes');
 const syncRoutes = require('./src/routes/syncRoutes');
 const notificationRoutes = require('./src/routes/notificationRoutes');
+const adminRoutes = require('./src/routes/adminRoutes');
 
 const app = express();
 const server = http.createServer(app);
@@ -119,7 +120,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+// Express 5 requires a named wildcard; use a regex to match all paths for CORS preflight.
+app.options(/.*/, cors(corsOptions));
 
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
@@ -151,6 +153,7 @@ app.use('/api/knowledge', knowledgeRoutes);
 app.use('/api/market', marketRoutes);
 app.use('/api/sync', syncRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/admin', adminRoutes);
 
 // 404 handler
 app.use((req, res) => {

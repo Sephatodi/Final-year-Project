@@ -19,10 +19,6 @@ exports.getPrices = async (req, res, next) => {
             limit: parseInt(limit),
             offset: parseInt(offset),
             order: [['createdAt', 'DESC']],
-            include: [{
-                model: User,
-                attributes: ['id', 'name']
-            }]
         });
 
         res.json({
@@ -46,12 +42,7 @@ exports.getPriceById = async (req, res, next) => {
     try {
         const { id } = req.params;
 
-        const price = await MarketPrice.findByPk(id, {
-            include: [{
-                model: User,
-                attributes: ['id', 'name', 'email']
-            }]
-        });
+        const price = await MarketPrice.findByPk(id);
 
         if (!price) {
             return res.status(404).json({ error: 'Price entry not found' });

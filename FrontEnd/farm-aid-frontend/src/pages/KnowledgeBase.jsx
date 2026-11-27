@@ -8,11 +8,15 @@ import goatImg from '../assets/goat.png';
 import sheepImg from '../assets/sheep.png';
 
 const getSpeciesImage = (species) => {
-  if (species === 'cattle') return cattleImg;
-  if (species === 'goat') return goatImg;
-  if (species === 'sheep') return sheepImg;
+  const primary = Array.isArray(species) ? species[0] : species;
+  if (primary === 'cattle') return cattleImg;
+  if (primary === 'goat') return goatImg;
+  if (primary === 'sheep') return sheepImg;
   return cattleImg; // Default placeholder
 };
+
+const getPrimarySpecies = (species) =>
+  Array.isArray(species) ? (species[0] || 'all') : (species || 'all');
 
 const KnowledgeBase = () => {
   const [articles, setArticles] = useState([]);
@@ -95,9 +99,13 @@ const KnowledgeBase = () => {
     
     // Species filter
     if (speciesFilter !== 'all') {
-      filtered = filtered.filter(article => 
-        article.species === 'all' || article.species === speciesFilter
-      );
+      filtered = filtered.filter(article => {
+        const sp = article.species;
+        if (Array.isArray(sp)) {
+          return sp.includes('all') || sp.includes(speciesFilter);
+        }
+        return sp === 'all' || sp === speciesFilter;
+      });
     }
     
     // Text search
@@ -473,8 +481,8 @@ const KnowledgeBase = () => {
                           </h4>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${getSpeciesBadgeColor(article.species)}`}>
-                            {article.species}
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${getSpeciesBadgeColor(getPrimarySpecies(article.species))}`}>
+                            {getPrimarySpecies(article.species)}
                           </span>
                           {article.notifiable && (
                             <span className="text-[10px] text-red-500 font-bold uppercase flex items-center gap-0.5">
@@ -518,8 +526,8 @@ const KnowledgeBase = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3 mb-8">
-                  <span className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${getSpeciesBadgeColor(selectedArticle.species)}`}>
-                    Target: {selectedArticle.species === 'all' ? 'All Livestock' : selectedArticle.species}
+                  <span className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${getSpeciesBadgeColor(getPrimarySpecies(selectedArticle.species))}`}>
+                    Target: {getPrimarySpecies(selectedArticle.species) === 'all' ? 'All Livestock' : getPrimarySpecies(selectedArticle.species)}
                   </span>
                   {selectedArticle.notifiable && (
                     <span className="bg-red-500 text-white px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest flex items-center gap-1 shadow-sm">

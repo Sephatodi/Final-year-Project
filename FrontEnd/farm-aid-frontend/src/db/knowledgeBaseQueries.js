@@ -1,13 +1,31 @@
 import { knowledgeQueries } from './knowledgeQueries';
 import aiService from '../services/aiService';
+import KB_ARTICLES from '../constants/offlineKnowledgeBase';
 
 export const knowledgeBaseQueries = {
   ...knowledgeQueries,
 
   initializeKnowledgeBase: async () => {
-    // Check if we need to seed initial data or initialize anything
-    console.log('Knowledge Base Initialized');
-    return true;
+    // Seed the offline knowledge base with the bundled bilingual articles if
+    // the local store is empty. This makes the Knowledge Base available fully
+    // offline, as required by the specification.
+    try {
+      const existing = await knowledgeQueries.getAllArticles();
+      if (existing && existing.length > 0) {
+        // Top up any newly-added articles without duplicating existing ones.
+        const ids = new Set(existing.map((a) => a.id));
+        const toAdd = KB_ARTICLES.filter((a) => !ids.has(a.id));
+        if (toAdd.length > 0) {
+          await knowledgeQueries.saveArticles(toAdd);
+        }
+        return true;
+      }
+      await knowledgeQueries.saveArticles(KB_ARTICLES);
+      return true;
+    } catch (error) {
+      console.error('Failed to initialize knowledge base:', error);
+      return false;
+    }
   },
 
   getSystemStatus: async () => {

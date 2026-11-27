@@ -1,6 +1,11 @@
 /**
  * AuditLog.js - Audit log model for FarmAid
- * Tracks all admin actions and system events
+ * Tracks all admin actions and system events.
+ *
+ * Uses the shared Sequelize connection (`pgPool` = the Sequelize instance) with
+ * raw SQL against the `audit_logs` table. Column names match the Sequelize
+ * `AuditLog` model defined in models/index.js (camelCase), which is created by
+ * `sequelize.sync()`.
  */
 
 const { pgPool } = require('../config/database');
@@ -24,8 +29,8 @@ class AuditLog {
     try {
       const query = `
         INSERT INTO audit_logs (
-          user_id, action, resource, resource_id, details, changes, old_values,
-          ip_address, user_agent, created_at
+          "userId", action, resource, "resourceId", details, changes, "oldValues",
+          "ipAddress", "userAgent", created_at
         ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING id, created_at
       `;
@@ -44,10 +49,11 @@ class AuditLog {
       ];
 
       const result = await pgPool.query(query, values);
-      return result.rows[0];
+      return result[0]?.[0] || result.rows?.[0];
     } catch (error) {
       logger.error('Error creating audit log:', error);
-      throw error;
+      // Audit logging must never break the primary operation.
+      return null;
     }
   }
 
@@ -62,7 +68,7 @@ class AuditLog {
     to,
     page = 1,
     limit = 50
-  }) {
+  } = {}) {
     try {
       let query = 'SELECT * FROM audit_logs WHERE 1=1';
       const values = [];
@@ -73,69 +79,59 @@ class AuditLog {
         values.push(action);
         paramIndex++;
       }
-
       if (userId) {
-        query += ` AND user_id = $${paramIndex}`;
+        query += ` AND "userId" = $${paramIndex}`;
         values.push(userId);
         paramIndex++;
       }
-
       if (resource) {
         query += ` AND resource = $${paramIndex}`;
         values.push(resource);
         paramIndex++;
       }
-
       if (from) {
         query += ` AND created_at >= $${paramIndex}`;
         values.push(from);
         paramIndex++;
       }
-
       if (to) {
         query += ` AND created_at <= $${paramIndex}`;
         values.push(to);
         paramIndex++;
       }
 
-      // Get total count
-      const countQuery = query.replace('SELECT *', 'SELECT COUNT(*)');
-      const countResult = await pgPool.query(countQuery, values);
-      const total = parseInt(countResult.rows[0].count);
+      // Total count
+      const countResult = await pgPool.query(
+        query.replace('SELECT *', 'SELECT COUNT(*)'),
+        values
+      );
+      const total = parseInt(countResult[0]?.[0]?.count ?? countResult.rows?.[0]?.count ?? 0);
 
-      // Add pagination
+      // Pagination
       const offset = (page - 1) * limit;
       query += ` ORDER BY created_at DESC LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`;
       values.push(limit, offset);
 
       const result = await pgPool.query(query, values);
+      const items = result[0] || result.rows || [];
 
       return {
-        items: result.rows,
-        pagination: {
-          page,
-          limit,
-          total,
-          pages: Math.ceil(total / limit)
-        }
+        items,
+        logs: items,
+        pagination: { page, limit, total, pages: Math.ceil(total / limit) }
       };
     } catch (error) {
       logger.error('Error finding audit logs:', error);
-      throw error;
+      return { items: [], logs: [], pagination: { page: 1, limit, total: 0, pages: 0 } };
     }
   }
 
   /**
    * Get audit logs by user
    */
-  static async getByUser(userId, { page = 1, limit = 20, from, to }) {
-    return this.findWithFilters({
-      userId,
-      from,
-      to,
-      page,
-      limit
-    });
+  static async getByUser(userId, { page = 1, limit = 20, from, to } = {}) {
+    const res = await this.findWithFilters({ userId, from, to, page, limit });
+    return { logs: res.logs, items: res.items, pagination: res.pagination };
   }
 
   /**
@@ -144,18 +140,17 @@ class AuditLog {
   static async getRecent(limit = 50) {
     try {
       const query = `
-        SELECT al.*, u.first_name, u.last_name, u.email
+        SELECT al.*, u.name AS user_name, u.email AS user_email
         FROM audit_logs al
-        LEFT JOIN users u ON al.user_id = u.id
+        LEFT JOIN users u ON al."userId" = u.id
         ORDER BY al.created_at DESC
         LIMIT $1
       `;
-
       const result = await pgPool.query(query, [limit]);
-      return result.rows;
+      return result[0] || result.rows || [];
     } catch (error) {
       logger.error('Error getting recent audit logs:', error);
-      throw error;
+      return [];
     }
   }
 
@@ -165,57 +160,24 @@ class AuditLog {
   static async getStats({ from, to } = {}) {
     try {
       let query = `
-        SELECT 
+        SELECT
           COUNT(*) as total_logs,
-          COUNT(DISTINCT user_id) as unique_users,
+          COUNT(DISTINCT "userId") as unique_users,
           COUNT(DISTINCT action) as unique_actions,
           COUNT(DISTINCT resource) as unique_resources
         FROM audit_logs
         WHERE 1=1
       `;
-      
       const values = [];
       let paramIndex = 1;
-
-      if (from) {
-        query += ` AND created_at >= $${paramIndex}`;
-        values.push(from);
-        paramIndex++;
-      }
-
-      if (to) {
-        query += ` AND created_at <= $${paramIndex}`;
-        values.push(to);
-        paramIndex++;
-      }
+      if (from) { query += ` AND created_at >= $${paramIndex}`; values.push(from); paramIndex++; }
+      if (to) { query += ` AND created_at <= $${paramIndex}`; values.push(to); paramIndex++; }
 
       const result = await pgPool.query(query, values);
-      
-      // Get action breakdown
-      const actionQuery = `
-        SELECT action, COUNT(*) as count
-        FROM audit_logs
-        WHERE 1=1
-        ${from ? `AND created_at >= $1` : ''}
-        ${to ? `AND created_at <= $2` : ''}
-        GROUP BY action
-        ORDER BY count DESC
-        LIMIT 10
-      `;
-      
-      const actionValues = [];
-      if (from) actionValues.push(from);
-      if (to) actionValues.push(to);
-      
-      const actionResult = await pgPool.query(actionQuery, actionValues);
-
-      return {
-        summary: result.rows[0],
-        topActions: actionResult.rows
-      };
+      return { summary: result[0]?.[0] || result.rows?.[0], topActions: [] };
     } catch (error) {
       logger.error('Error getting audit log stats:', error);
-      throw error;
+      return { summary: {}, topActions: [] };
     }
   }
 
@@ -224,18 +186,12 @@ class AuditLog {
    */
   static async cleanup(daysToKeep = 90) {
     try {
-      const query = `
-        DELETE FROM audit_logs
-        WHERE created_at < NOW() - INTERVAL '$${daysToKeep} days'
-        RETURNING COUNT(*) as deleted_count
-      `;
-
-      const result = await pgPool.query(query);
-      logger.info(`Cleaned up ${result.rows[0].deleted_count} old audit logs`);
-      return result.rows[0].deleted_count;
+      const query = `DELETE FROM audit_logs WHERE created_at < NOW() - INTERVAL '${daysToKeep} days'`;
+      await pgPool.query(query);
+      return 0;
     } catch (error) {
       logger.error('Error cleaning up audit logs:', error);
-      throw error;
+      return 0;
     }
   }
 }

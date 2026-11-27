@@ -187,7 +187,7 @@ exports.updateUser = asyncHandler(async (req, res) => {
     userAgent: req.get('User-Agent')
   });
 
-  const updatedUser = await User.update(userId, updates);
+  const updatedUser = await User.adminUpdate(userId, updates);
 
   // Send notification to user if status changed
   if (updates.status && updates.status !== user.status) {
@@ -264,7 +264,7 @@ exports.suspendUser = asyncHandler(async (req, res) => {
     throw new AppError('Cannot suspend your own account', 400, ERROR_CODES.SELF_OPERATION_NOT_ALLOWED);
   }
 
-  await User.update(userId, {
+  await User.adminUpdate(userId, {
     status: 'suspended',
     suspensionReason: reason,
     suspendedBy: req.user.id,
@@ -308,7 +308,7 @@ exports.activateUser = asyncHandler(async (req, res) => {
     throw new AppError('User not found', 404, ERROR_CODES.USER_NOT_FOUND);
   }
 
-  await User.update(userId, {
+  await User.adminUpdate(userId, {
     status: 'active',
     suspensionReason: null,
     suspendedBy: null,
@@ -1198,9 +1198,7 @@ async function getSystemHealthStatus() {
 
   // Check PostgreSQL
   try {
-    const pgClient = await pgPool.connect();
-    await pgClient.query('SELECT 1');
-    pgClient.release();
+    await pgPool.authenticate();
     health.components.postgresql = { status: 'healthy' };
   } catch (error) {
     health.components.postgresql = { status: 'unhealthy', error: error.message };

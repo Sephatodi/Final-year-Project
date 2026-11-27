@@ -2,7 +2,13 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
+// Wrap an async route handler so rejected promises are forwarded to Express'
+// error handler instead of crashing the process.
+const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
 module.exports = {
+  asyncHandler,
   // Generate JWT token
   generateToken: (userId) => {
     return jwt.sign(
